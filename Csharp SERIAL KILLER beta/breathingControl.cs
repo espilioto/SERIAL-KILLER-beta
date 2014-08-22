@@ -29,7 +29,7 @@ namespace Csharp_SERIAL_KILLER_beta
             if (Form1.connected && breathingMode)
             {
 
-                if (pwm < 6)
+                if (pwm < 6)        //this looks better than turning the led off
                     rising = true;
                 else if (pwm > 179)
                     rising = false;

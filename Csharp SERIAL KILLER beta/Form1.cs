@@ -7,6 +7,7 @@ namespace Csharp_SERIAL_KILLER_beta
 {
     public partial class Form1 : Form
     {
+        public normalControl normalControl = new normalControl();
         public soundControl soundControl = new soundControl();
         public breathingControl breathingControl = new breathingControl();
 
@@ -91,7 +92,7 @@ namespace Csharp_SERIAL_KILLER_beta
             }
         }
 
-        void enableforms(bool b)
+        public void enableforms(bool b)
         {
             resetsliders.Enabled = b;
             btnRfr.Enabled = b;
@@ -400,27 +401,18 @@ namespace Csharp_SERIAL_KILLER_beta
                 "\r•A bit later: It's alive!" +
                 "\r•Winter 2013: Started the project in VB.net");
         }          //changelog 
-        private void preferencesToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void onToolStripMenuItem_Click(object sender, EventArgs e)                    //normal on
         {
-            soundControl.ShowDialog();
-        }       //sound prefs
-        private void onToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            soundControl.soundMode = true;
-            soundControl.radioRed.Select();
-            soundControl.soundModeStart(this, null);
 
-            enableforms(false);
-            offToolStripMenuItem1.Enabled = true;
-        }                //sound on
-        private void offToolStripMenuItem1_Click(object sender, EventArgs e)
+        }
+        private void offToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            soundControl.soundMode = false;
-            soundControl.soundModeStop(this, null);
 
-            enableforms(true);
-            offToolStripMenuItem1.Enabled = false;
-        }               //sound off
+        }               //normal off
+        private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            normalControl.ShowDialog();
+        }        //normal prefs
         private void onToolStripMenuItem3_Click(object sender, EventArgs e)
         {
             enableforms(false);
@@ -471,15 +463,39 @@ namespace Csharp_SERIAL_KILLER_beta
         private void onToolStripMenuItem4_Click(object sender, EventArgs e)
         {
             breathingControl.breathingModeStart(this, null);
+            enableforms(false);
+            offToolStripMenuItem4.Enabled = true;
         }                //breath on
         private void offToolStripMenuItem4_Click(object sender, EventArgs e)
         {
             breathingControl.breathingModeStop(this, null);
+            enableforms(true);
         }               //breath off
         private void preferencesToolStripMenuItem3_Click(object sender, EventArgs e)
         {
             breathingControl.ShowDialog();
         }       //breath prefs
+        private void onToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            soundControl.soundMode = true;
+            soundControl.radioRed.Select();
+            soundControl.soundModeStart(this, null);
+
+            enableforms(false);
+            offToolStripMenuItem1.Enabled = true;
+        }                //sound on
+        private void offToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            soundControl.soundMode = false;
+            soundControl.soundModeStop(this, null);
+
+            enableforms(true);
+        }               //sound off
+        private void preferencesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            soundControl.ShowDialog();
+        }       //sound prefs
+
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (connected)
@@ -488,6 +504,21 @@ namespace Csharp_SERIAL_KILLER_beta
                 uart.Close();
             }
         }
+
+        private void Form1_Activated(object sender, EventArgs e)
+        {
+            if (breathingControl.breathingMode)
+            {
+                enableforms(false);
+                offToolStripMenuItem4.Enabled = true;
+            }
+            else if (soundControl.soundMode) 
+            {
+                enableforms(false);
+                offToolStripMenuItem1.Enabled = true;
+            }
+        }
+
 
     }
 }

@@ -751,26 +751,29 @@
             this.offToolStripMenuItem,
             this.preferencesToolStripMenuItem});
             this.normalToolStripMenuItem.Name = "normalToolStripMenuItem";
-            this.normalToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.normalToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.normalToolStripMenuItem.Text = "Normal";
             // 
             // onToolStripMenuItem
             // 
             this.onToolStripMenuItem.Name = "onToolStripMenuItem";
-            this.onToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.onToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.onToolStripMenuItem.Text = "&On";
+            this.onToolStripMenuItem.Click += new System.EventHandler(this.onToolStripMenuItem_Click);
             // 
             // offToolStripMenuItem
             // 
             this.offToolStripMenuItem.Name = "offToolStripMenuItem";
-            this.offToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.offToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.offToolStripMenuItem.Text = "&Off";
+            this.offToolStripMenuItem.Click += new System.EventHandler(this.offToolStripMenuItem_Click);
             // 
             // preferencesToolStripMenuItem
             // 
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.preferencesToolStripMenuItem.Text = "&Preferences";
+            this.preferencesToolStripMenuItem.Click += new System.EventHandler(this.preferencesToolStripMenuItem_Click);
             // 
             // rainbowToolStripMenuItem
             // 
@@ -778,7 +781,7 @@
             this.onToolStripMenuItem3,
             this.offToolStripMenuItem3});
             this.rainbowToolStripMenuItem.Name = "rainbowToolStripMenuItem";
-            this.rainbowToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.rainbowToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.rainbowToolStripMenuItem.Text = "Rainbow";
             // 
             // onToolStripMenuItem3
@@ -802,7 +805,7 @@
             this.offToolStripMenuItem4,
             this.preferencesToolStripMenuItem3});
             this.breathingToolStripMenuItem.Name = "breathingToolStripMenuItem";
-            this.breathingToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.breathingToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.breathingToolStripMenuItem.Text = "Breathing";
             // 
             // onToolStripMenuItem4
@@ -833,7 +836,7 @@
             this.offToolStripMenuItem1,
             this.preferencesToolStripMenuItem1});
             this.soundToolStripMenuItem.Name = "soundToolStripMenuItem";
-            this.soundToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.soundToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.soundToolStripMenuItem.Text = "&Sound";
             // 
             // onToolStripMenuItem1
@@ -864,7 +867,7 @@
             this.offToolStripMenuItem2,
             this.preferencesToolStripMenuItem2});
             this.temperatureToolStripMenuItem.Name = "temperatureToolStripMenuItem";
-            this.temperatureToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.temperatureToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.temperatureToolStripMenuItem.Text = "&Temperature";
             // 
             // onToolStripMenuItem2
@@ -940,6 +943,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SERIAL KILLER beta3";
+            this.Activated += new System.EventHandler(this.Form1_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Resize += new System.EventHandler(this.Form1_Resize);

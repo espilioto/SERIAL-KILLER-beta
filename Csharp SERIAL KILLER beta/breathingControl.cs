@@ -14,16 +14,15 @@ namespace Csharp_SERIAL_KILLER_beta
         public static bool breathingMode = false;
         bool rising;
         int pwm = 0;
+            System.Diagnostics.Stopwatch watch = new System.Diagnostics.Stopwatch();
 
         private void breathingControl_Load(object sender, EventArgs e)
         {
             breathRed.Select();
+            comboBox1.SelectedIndex = 1;
 
-            timerPWM.Interval = (int)(((trackBar1.Value / 2.0) * 1000) / 255) / 2; 
-            //yes, holy shit. (((trackBar / 2 (seconds)) * 1000 (miliseconds)) / pwm levels) / 2 (breath in + breath out)
-
-            label5.Text = (trackBar1.Value / 2.0).ToString() + "s";
-            label2.Text = "Interval = " + timerPWM.Interval.ToString();
+            timerPWM.Interval = 20;
+            
         }
 
         private void timerPWM_Tick(object sender, EventArgs e)
@@ -31,19 +30,26 @@ namespace Csharp_SERIAL_KILLER_beta
 
             if (Form1.connected && breathingMode)
             {
+
                 if (pwm < 1)
                     rising = true;
-                else if (pwm > 254)
+                else if (pwm > 179)
                     rising = false;
 
-                if (pwm < 255 && rising)
-                    pwm++;
+                if (pwm < 180 && rising)
+                    if (comboBox1.SelectedIndex == 0)
+                        pwm++;
+                    else if (comboBox1.SelectedIndex == 1)
+                        pwm += 2;
+                    else
+                        pwm += 3;
                 else
-                    pwm--;
-                //if (pwm > 254)
-                //    pwm--;
-                //else if (pwm < 1)
-                //    pwm++;
+                    if (comboBox1.SelectedIndex == 0)
+                        pwm--;
+                    else if (comboBox1.SelectedIndex == 1)
+                        pwm -= 2;
+                    else
+                        pwm -= 3;
 
                 if (breathRed.Checked)
                     Form1.uart.Write("rgb " + pwm + "," + 0 + "," + 0 + ";");
@@ -60,6 +66,7 @@ namespace Csharp_SERIAL_KILLER_beta
                 else
                     Form1.uart.Write("rgb " + pwm + "," + pwm + "," + pwm + ";");
 
+                label2.Text = "Interval = " + timerPWM.Interval.ToString();
                 label3.Text = "Color value = " + pwm.ToString();
             }
         }
@@ -68,6 +75,7 @@ namespace Csharp_SERIAL_KILLER_beta
         {
             breathingMode = true;
             timerPWM.Start();
+            watch.Start();
         }
 
         public void breathingModeStop(object sender, EventArgs e)
@@ -77,15 +85,29 @@ namespace Csharp_SERIAL_KILLER_beta
             Form1.uart.Write("off;");
             pwm = 0;
 
-            label5.Text = "0";
+            watch.Stop();
+            label5.Text = watch.ElapsedMilliseconds.ToString();
+            watch.Reset();
+
+            label3.Text = "0";
         }
 
-        private void trackBar1_Scroll(object sender, EventArgs e)
-        {
-            timerPWM.Interval = (int)(((trackBar1.Value / 2.0) * 1000) / 255) / 2; 
+        //private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    switch (comboBox1.SelectedIndex)
+        //    {
+        //        case 0:
+        //            timerPWM.Interval = 9;
+        //            break;
+        //        case 1:
+        //            timerPWM.Interval = 5;
+        //            break;
+        //        case 2:
+        //            timerPWM.Interval = 1;
+        //            break;
+        //    }
+        //}
 
-            label5.Text = (trackBar1.Value / 2.0).ToString() + "s";
-            label2.Text = "Interval = " + timerPWM.Interval.ToString();
-        }
+
     }
 }

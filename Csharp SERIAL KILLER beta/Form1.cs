@@ -110,16 +110,20 @@ namespace Csharp_SERIAL_KILLER_beta
             Leds.Enabled = b;
             idleToolStripMenuItem1.Enabled = b;
             resetToolStripMenuItem1.Enabled = b;
-            onToolStripMenuItem.Enabled = b;        //normal mode
-            offToolStripMenuItem.Enabled = b;       //normal mode
-            onToolStripMenuItem1.Enabled = b;       //sound mode
-            offToolStripMenuItem1.Enabled = b;      //sound mode
-            onToolStripMenuItem2.Enabled = b;       //temperature mode
-            offToolStripMenuItem2.Enabled = b;      //temperature mode
-            onToolStripMenuItem3.Enabled = b;       //rainbow mode
-            offToolStripMenuItem3.Enabled = b;      //rainbow mode
-            onToolStripMenuItem4.Enabled = b;       //breathing mode
-            offToolStripMenuItem4.Enabled = b;      //breathing mode
+            onToolStripMenuItem.Enabled = b;                //normal mode
+            offToolStripMenuItem.Enabled = b;               //normal mode
+            preferencesToolStripMenuItem.Enabled = b;       //normal mode
+            onToolStripMenuItem1.Enabled = b;              //sound mode
+            offToolStripMenuItem1.Enabled = b;             //sound mode
+            preferencesToolStripMenuItem1.Enabled = b;      //sound mode
+            onToolStripMenuItem2.Enabled = b;              //temperature mode
+            offToolStripMenuItem2.Enabled = b;             //temperature mode
+            preferencesToolStripMenuItem2.Enabled = b;      //temperature mode
+            onToolStripMenuItem3.Enabled = b;              //rainbow mode
+            offToolStripMenuItem3.Enabled = b;              //rainbow mode
+            onToolStripMenuItem4.Enabled = b;              //breathing mode
+            offToolStripMenuItem4.Enabled = b;              //breathing mode
+            preferencesToolStripMenuItem3.Enabled = b;      //breathing mode
         }
         private void resetnumbers()
         {

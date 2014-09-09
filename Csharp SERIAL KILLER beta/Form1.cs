@@ -10,14 +10,14 @@ namespace Csharp_SERIAL_KILLER_beta
         public normalControl normalControl = new normalControl();
         public soundControl soundControl = new soundControl();
         public breathingControl breathingControl = new breathingControl();
+        public flashingControl flashingControl = new flashingControl();
 
         MMDeviceEnumerator DevEnum = new MMDeviceEnumerator();
         MMDevice device;
 
         public static SerialPort uart = new SerialPort(); //commands:     ping ;  off ;   rgb r,g,b;  out,bit,0/1;    sta,;   man ;/help ;    
-        int r, g, b;
         int port1, port2;
-        bool flag = true;
+        bool rOn = false, gOn = false;
         public static bool connected = false;
         string s;
 
@@ -65,7 +65,6 @@ namespace Csharp_SERIAL_KILLER_beta
                     {
                         MessageBox.Show("Connected to the SERIAL KILLER 3000!");
                         enableforms(true);
-                        resetnumbers();
                         resetrgbled();
                         connected = true;
                     }
@@ -94,102 +93,42 @@ namespace Csharp_SERIAL_KILLER_beta
 
         public void enableforms(bool b)
         {
-            resetsliders.Enabled = b;
             btnRfr.Enabled = b;
-            redupdown.Enabled = b;
-            greenupdown.Enabled = b;
-            blueupdown.Enabled = b;
             btnPorts.Enabled = b;
-            colorpick.Enabled = b;
-            resetled.Enabled = b;
-            redbar.Enabled = b;
-            bluebar.Enabled = b;
-            greenbar.Enabled = b;
-            rled.Enabled = b;
-            gled.Enabled = b;
-            bleds.Enabled = b;
             Leds.Enabled = b;
             idleToolStripMenuItem1.Enabled = b;
             resetToolStripMenuItem1.Enabled = b;
+            toggleP10ToolStripMenuItem.Enabled = b;         //red led
+            toggleP16ToolStripMenuItem.Enabled = b;         //green led
             onToolStripMenuItem.Enabled = b;                //normal mode
             offToolStripMenuItem.Enabled = b;               //normal mode
             preferencesToolStripMenuItem.Enabled = b;       //normal mode
+            onToolStripMenuItem3.Enabled = b;              //rainbow mode
+            offToolStripMenuItem3.Enabled = b;              //rainbow mode
+            onToolStripMenuItem4.Enabled = b;              //breathing mode
+            offToolStripMenuItem4.Enabled = b;              //breathing mode
+            preferencesToolStripMenuItem3.Enabled = b;      //breathing mode
             onToolStripMenuItem1.Enabled = b;              //sound mode
             offToolStripMenuItem1.Enabled = b;             //sound mode
             preferencesToolStripMenuItem1.Enabled = b;      //sound mode
             onToolStripMenuItem2.Enabled = b;              //temperature mode
             offToolStripMenuItem2.Enabled = b;             //temperature mode
             preferencesToolStripMenuItem2.Enabled = b;      //temperature mode
-            onToolStripMenuItem3.Enabled = b;              //rainbow mode
-            offToolStripMenuItem3.Enabled = b;              //rainbow mode
-            onToolStripMenuItem4.Enabled = b;              //breathing mode
-            offToolStripMenuItem4.Enabled = b;              //breathing mode
-            preferencesToolStripMenuItem3.Enabled = b;      //breathing mode
+            onToolStripMenuItem5.Enabled = b;               //flashing mode
+            offToolStripMenuItem5.Enabled = b;              //flashing mode
+            preferencesToolStripMenuItem4.Enabled = b;      //flashing mode
         }
-        private void resetnumbers()
-        {
-            r = 0;
-            g = 0;
-            b = 0;
-            redbar.Value = 0;
-            greenbar.Value = 0;
-            bluebar.Value = 0;
-            redupdown.Value = 0;
-            greenupdown.Value = 0;
-            blueupdown.Value = 0;
-        }
+
         private void btntopmost_CheckedChanged(object sender, EventArgs e)
         {
             TopMost = btntopmost.Checked;
         }
-        private void resetsliders_Click(object sender, EventArgs e)
+
+        public static void resetrgbled()
         {
-            redbar.Value = 0;
-            greenbar.Value = 0;
-            bluebar.Value = 0;
-            redupdown.Value = 0;
-            greenupdown.Value = 0;
-            blueupdown.Value = 0;
+            uart.Write("off;");
         }
 
-        private void rled_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rled.Checked)
-                uart.Write("bit " + 0 + "," + 1 + ";");
-            else
-                uart.Write("bit " + 0 + "," + 0 + ";");
-        }
-        private void gled_CheckedChanged(object sender, EventArgs e)
-        {
-            if (gled.Checked)
-                uart.Write("bit " + 6 + "," + 1 + ";");
-            else
-                uart.Write("bit " + 6 + "," + 0 + ";");
-        }
-        private void bleds_Click(object sender, EventArgs e)
-        {
-            flag = !flag;
-
-            if (flag)
-            {
-                uart.Write("bit " + 0 + "," + 1 + ";");
-                uart.Write("bit " + 6 + "," + 1 + ";");
-            }
-            else
-            {
-                uart.Write("bit " + 0 + "," + 0 + ";");
-                uart.Write("bit " + 6 + "," + 0 + ";");
-            }
-        }
-
-        private void resetled_Click(object sender, EventArgs e)
-        {
-            resetrgbled();
-        }
-        private void resetrgbled()
-        {
-            uart.Write("rgb " + 0 + "," + 0 + "," + 0 + ";");
-        }
         private void portstatus()
         {
             uart.Write("sta;");
@@ -248,16 +187,6 @@ namespace Csharp_SERIAL_KILLER_beta
             return b;
         }
 
-        private void colorpick_Click(object sender, EventArgs e)
-        {
-            ColorDialog.ShowDialog();
-            r = ColorDialog.Color.R;
-            g = ColorDialog.Color.G;
-            b = ColorDialog.Color.B;
-            redupdown.Value = r;
-            greenupdown.Value = g;
-            blueupdown.Value = b;
-        }
 
 
         #region minimize to tray stuff  //todo minimize menu stuff
@@ -324,46 +253,6 @@ namespace Csharp_SERIAL_KILLER_beta
 
         #endregion
 
-        #region bars and numbers
-
-        private void redbar_Scroll(object sender, EventArgs e)
-        {
-            redupdown.Value = redbar.Value;
-            r = redbar.Value;
-            uart.Write("rgb " + r + "," + g + "," + b + ";");
-        }
-        private void greenbar_Scroll(object sender, EventArgs e)
-        {
-            greenupdown.Value = greenbar.Value;
-            g = greenbar.Value;
-            uart.Write("rgb " + r + "," + g + "," + b + ";");
-        }
-        private void bluebar_Scroll(object sender, EventArgs e)
-        {
-            blueupdown.Value = bluebar.Value;
-            b = bluebar.Value;
-            uart.Write("rgb " + r + "," + g + "," + b + ";");
-        }
-        private void redupdown_ValueChanged(object sender, EventArgs e)
-        {
-            redbar.Value = int.Parse(redupdown.Value.ToString());
-            r = int.Parse(redupdown.Value.ToString());
-            uart.Write("rgb " + r + "," + g + "," + b + ";");
-        }
-        private void greenupdown_ValueChanged(object sender, EventArgs e)
-        {
-            greenbar.Value = int.Parse(greenupdown.Value.ToString());
-            g = int.Parse(greenupdown.Value.ToString());
-            uart.Write("rgb " + r + "," + g + "," + b + ";");
-        }
-        private void blueupdown_ValueChanged(object sender, EventArgs e)
-        {
-            bluebar.Value = int.Parse(blueupdown.Value.ToString());
-            b = int.Parse(blueupdown.Value.ToString());
-            uart.Write("rgb " + r + "," + g + "," + b + ";");
-        }
-
-        #endregion
 
         private void idleToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -385,6 +274,32 @@ namespace Csharp_SERIAL_KILLER_beta
             "\n\r>sta;\t\tReturns Port 1 and Port 2 GPIO status (GUI only)." +
             "\n\r>man;/help ;\tPrints this screen.\n\n\r");
         }        //cmd list
+        private void toggleP10ToolStripMenuItem_Click(object sender, EventArgs e)             //P1.0
+        {
+            if (!rOn)
+            {
+                uart.Write("bit " + 0 + "," + 1 + ";");
+                rOn = !rOn;
+            }
+            else
+            {
+                uart.Write("bit " + 0 + "," + 0 + ";");
+                rOn = !rOn;
+            }
+        }
+        private void toggleP16ToolStripMenuItem_Click(object sender, EventArgs e)             //P1.6
+        {
+            if (!gOn)
+            {
+                uart.Write("bit " + 6 + "," + 1 + ";");
+                gOn = !gOn;
+            }
+            else
+            {
+                uart.Write("bit " + 6 + "," + 0 + ";");
+                gOn = !gOn;
+            }
+        }
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("2bling4u");
@@ -401,14 +316,14 @@ namespace Csharp_SERIAL_KILLER_beta
                 "\r•A bit later: It's alive!" +
                 "\r•Winter 2013: Started the project in VB.net");
         }          //changelog 
-        private void onToolStripMenuItem_Click(object sender, EventArgs e)                    //normal on
+        private void onToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-        }
+        }                 //normal on
         private void offToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-        }               //normal off
+        }                //normal off
         private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             normalControl.ShowDialog();
@@ -417,9 +332,9 @@ namespace Csharp_SERIAL_KILLER_beta
         {
             enableforms(false);
             offToolStripMenuItem3.Enabled = true;
+            int r = 255, g = 0, b = 0;
 
             uart.Write("rgb " + 255 + "," + 0 + "," + 0 + ";");                 //r max 
-            r = 255; g = 0; b = 0;
 
             while (!onToolStripMenuItem3.Enabled)
             {
@@ -483,6 +398,7 @@ namespace Csharp_SERIAL_KILLER_beta
 
             enableforms(false);
             offToolStripMenuItem1.Enabled = true;
+            preferencesToolStripMenuItem1.Enabled = true;
         }                //sound on
         private void offToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -495,6 +411,28 @@ namespace Csharp_SERIAL_KILLER_beta
         {
             soundControl.ShowDialog();
         }       //sound prefs
+        private void onToolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            flashingControl.flashMode = true;
+            flashingControl.r = 255;
+            flashingControl.flashModeStart(this, null);
+
+            enableforms(false);
+            offToolStripMenuItem5.Enabled = true;
+            preferencesToolStripMenuItem4.Enabled = true;
+        }
+        private void offToolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            flashingControl.flashMode = false;
+            flashingControl.flashModeStop(this, null);
+
+            enableforms(true);
+        }
+        private void preferencesToolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            flashingControl.ShowDialog();
+        }
+
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -504,7 +442,6 @@ namespace Csharp_SERIAL_KILLER_beta
                 uart.Close();
             }
         }
-
         private void Form1_Activated(object sender, EventArgs e)
         {
             if (breathingControl.breathingMode)
@@ -516,6 +453,7 @@ namespace Csharp_SERIAL_KILLER_beta
             {
                 enableforms(false);
                 offToolStripMenuItem1.Enabled = true;
+                preferencesToolStripMenuItem1.Enabled = true;
             }
         }
 

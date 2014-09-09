@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.resetsliders = new System.Windows.Forms.Button();
             this.btntopmost = new System.Windows.Forms.CheckBox();
             this.Label10 = new System.Windows.Forms.Label();
             this.Label11 = new System.Windows.Forms.Label();
@@ -59,26 +58,10 @@
             this.Label20 = new System.Windows.Forms.Label();
             this.Label21 = new System.Windows.Forms.Label();
             this.btnPorts = new System.Windows.Forms.Button();
-            this.blueupdown = new System.Windows.Forms.NumericUpDown();
-            this.greenupdown = new System.Windows.Forms.NumericUpDown();
-            this.redupdown = new System.Windows.Forms.NumericUpDown();
-            this.resetled = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.ColorDialog = new System.Windows.Forms.ColorDialog();
-            this.colorpick = new System.Windows.Forms.Button();
             this.openport = new System.Windows.Forms.CheckBox();
-            this.bluebar = new System.Windows.Forms.TrackBar();
             this.portBox = new System.Windows.Forms.ComboBox();
-            this.greenbar = new System.Windows.Forms.TrackBar();
-            this.redbar = new System.Windows.Forms.TrackBar();
-            this.bleds = new System.Windows.Forms.Button();
             this.baudBox = new System.Windows.Forms.NumericUpDown();
             this.taskbarIcon = new System.Windows.Forms.NotifyIcon(this.components);
-            this.rled = new System.Windows.Forms.CheckBox();
-            this.gled = new System.Windows.Forms.CheckBox();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -88,6 +71,8 @@
             this.idleToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.resetToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.commandListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toggleP10ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toggleP16ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.normalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.onToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -108,32 +93,17 @@
             this.onToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.offToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.preferencesToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.flashToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.onToolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.offToolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.preferencesToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changelogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.blueupdown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.greenupdown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.redupdown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bluebar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.greenbar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.redbar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.baudBox)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // resetsliders
-            // 
-            this.resetsliders.AutoEllipsis = true;
-            this.resetsliders.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.resetsliders.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.resetsliders.Location = new System.Drawing.Point(397, 62);
-            this.resetsliders.Name = "resetsliders";
-            this.resetsliders.Size = new System.Drawing.Size(84, 23);
-            this.resetsliders.TabIndex = 83;
-            this.resetsliders.Text = "Reset sliders";
-            this.resetsliders.UseVisualStyleBackColor = true;
-            this.resetsliders.Click += new System.EventHandler(this.resetsliders_Click);
             // 
             // btntopmost
             // 
@@ -433,115 +403,6 @@
             this.btnPorts.UseVisualStyleBackColor = true;
             this.btnPorts.Click += new System.EventHandler(this.btnPorts_Click);
             // 
-            // blueupdown
-            // 
-            this.blueupdown.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.blueupdown.ForeColor = System.Drawing.Color.Blue;
-            this.blueupdown.Location = new System.Drawing.Point(25, 210);
-            this.blueupdown.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.blueupdown.Name = "blueupdown";
-            this.blueupdown.Size = new System.Drawing.Size(52, 21);
-            this.blueupdown.TabIndex = 78;
-            this.blueupdown.ValueChanged += new System.EventHandler(this.blueupdown_ValueChanged);
-            // 
-            // greenupdown
-            // 
-            this.greenupdown.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.greenupdown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.greenupdown.Location = new System.Drawing.Point(25, 161);
-            this.greenupdown.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.greenupdown.Name = "greenupdown";
-            this.greenupdown.Size = new System.Drawing.Size(52, 21);
-            this.greenupdown.TabIndex = 77;
-            this.greenupdown.ValueChanged += new System.EventHandler(this.greenupdown_ValueChanged);
-            // 
-            // redupdown
-            // 
-            this.redupdown.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.redupdown.ForeColor = System.Drawing.Color.Red;
-            this.redupdown.Location = new System.Drawing.Point(24, 108);
-            this.redupdown.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.redupdown.Name = "redupdown";
-            this.redupdown.Size = new System.Drawing.Size(52, 21);
-            this.redupdown.TabIndex = 76;
-            this.redupdown.ValueChanged += new System.EventHandler(this.redupdown_ValueChanged);
-            // 
-            // resetled
-            // 
-            this.resetled.AutoEllipsis = true;
-            this.resetled.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.resetled.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.resetled.Location = new System.Drawing.Point(397, 34);
-            this.resetled.Name = "resetled";
-            this.resetled.Size = new System.Drawing.Size(84, 23);
-            this.resetled.TabIndex = 75;
-            this.resetled.Text = "Reset led";
-            this.resetled.UseVisualStyleBackColor = true;
-            this.resetled.Click += new System.EventHandler(this.resetled_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label3.ForeColor = System.Drawing.Color.Blue;
-            this.label3.Location = new System.Drawing.Point(2, 212);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(15, 13);
-            this.label3.TabIndex = 71;
-            this.label3.Text = "B";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label2.Location = new System.Drawing.Point(1, 163);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(16, 13);
-            this.label2.TabIndex = 70;
-            this.label2.Text = "G";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(2, 110);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(15, 13);
-            this.label1.TabIndex = 69;
-            this.label1.Text = "R";
-            // 
-            // ColorDialog
-            // 
-            this.ColorDialog.AnyColor = true;
-            this.ColorDialog.FullOpen = true;
-            // 
-            // colorpick
-            // 
-            this.colorpick.AutoEllipsis = true;
-            this.colorpick.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.colorpick.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.colorpick.Location = new System.Drawing.Point(568, 34);
-            this.colorpick.Name = "colorpick";
-            this.colorpick.Size = new System.Drawing.Size(75, 23);
-            this.colorpick.TabIndex = 73;
-            this.colorpick.Text = "Color Picker";
-            this.colorpick.UseVisualStyleBackColor = true;
-            this.colorpick.Click += new System.EventHandler(this.colorpick_Click);
-            // 
             // openport
             // 
             this.openport.Appearance = System.Windows.Forms.Appearance.Button;
@@ -554,17 +415,6 @@
             this.openport.UseVisualStyleBackColor = true;
             this.openport.CheckedChanged += new System.EventHandler(this.openport_CheckedChanged);
             // 
-            // bluebar
-            // 
-            this.bluebar.BackColor = System.Drawing.Color.DodgerBlue;
-            this.bluebar.Location = new System.Drawing.Point(83, 197);
-            this.bluebar.Maximum = 255;
-            this.bluebar.Name = "bluebar";
-            this.bluebar.Size = new System.Drawing.Size(560, 45);
-            this.bluebar.TabIndex = 68;
-            this.bluebar.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.bluebar.Scroll += new System.EventHandler(this.bluebar_Scroll);
-            // 
             // portBox
             // 
             this.portBox.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
@@ -573,41 +423,6 @@
             this.portBox.Name = "portBox";
             this.portBox.Size = new System.Drawing.Size(75, 21);
             this.portBox.TabIndex = 61;
-            // 
-            // greenbar
-            // 
-            this.greenbar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.greenbar.Location = new System.Drawing.Point(83, 146);
-            this.greenbar.Maximum = 255;
-            this.greenbar.Name = "greenbar";
-            this.greenbar.Size = new System.Drawing.Size(560, 45);
-            this.greenbar.TabIndex = 67;
-            this.greenbar.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.greenbar.Scroll += new System.EventHandler(this.greenbar_Scroll);
-            // 
-            // redbar
-            // 
-            this.redbar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.redbar.Location = new System.Drawing.Point(82, 95);
-            this.redbar.Maximum = 255;
-            this.redbar.Name = "redbar";
-            this.redbar.Size = new System.Drawing.Size(561, 45);
-            this.redbar.TabIndex = 66;
-            this.redbar.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.redbar.Scroll += new System.EventHandler(this.redbar_Scroll);
-            // 
-            // bleds
-            // 
-            this.bleds.AutoEllipsis = true;
-            this.bleds.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.bleds.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.bleds.Location = new System.Drawing.Point(244, 34);
-            this.bleds.Name = "bleds";
-            this.bleds.Size = new System.Drawing.Size(74, 23);
-            this.bleds.TabIndex = 65;
-            this.bleds.Text = "Toggle R/G";
-            this.bleds.UseVisualStyleBackColor = true;
-            this.bleds.Click += new System.EventHandler(this.bleds_Click);
             // 
             // baudBox
             // 
@@ -633,30 +448,6 @@
             this.taskbarIcon.Text = "Serial Killer";
             this.taskbarIcon.Visible = true;
             this.taskbarIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.taskbarIcon_MouseDoubleClick);
-            // 
-            // rled
-            // 
-            this.rled.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rled.Location = new System.Drawing.Point(83, 34);
-            this.rled.Name = "rled";
-            this.rled.Size = new System.Drawing.Size(74, 23);
-            this.rled.TabIndex = 84;
-            this.rled.Text = "Red led";
-            this.rled.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.rled.UseVisualStyleBackColor = true;
-            this.rled.CheckedChanged += new System.EventHandler(this.rled_CheckedChanged);
-            // 
-            // gled
-            // 
-            this.gled.Appearance = System.Windows.Forms.Appearance.Button;
-            this.gled.Location = new System.Drawing.Point(164, 34);
-            this.gled.Name = "gled";
-            this.gled.Size = new System.Drawing.Size(74, 23);
-            this.gled.TabIndex = 85;
-            this.gled.Text = "Green led";
-            this.gled.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.gled.UseVisualStyleBackColor = true;
-            this.gled.CheckedChanged += new System.EventHandler(this.gled_CheckedChanged);
             // 
             // menuStrip1
             // 
@@ -706,6 +497,8 @@
             this.commandsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.idleToolStripMenuItem1,
             this.resetToolStripMenuItem1,
+            this.toggleP10ToolStripMenuItem,
+            this.toggleP16ToolStripMenuItem,
             this.commandListToolStripMenuItem});
             this.commandsToolStripMenuItem.Name = "commandsToolStripMenuItem";
             this.commandsToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
@@ -714,23 +507,37 @@
             // idleToolStripMenuItem1
             // 
             this.idleToolStripMenuItem1.Name = "idleToolStripMenuItem1";
-            this.idleToolStripMenuItem1.Size = new System.Drawing.Size(149, 22);
+            this.idleToolStripMenuItem1.Size = new System.Drawing.Size(164, 22);
             this.idleToolStripMenuItem1.Text = "&Idle";
             this.idleToolStripMenuItem1.Click += new System.EventHandler(this.idleToolStripMenuItem1_Click);
             // 
             // resetToolStripMenuItem1
             // 
             this.resetToolStripMenuItem1.Name = "resetToolStripMenuItem1";
-            this.resetToolStripMenuItem1.Size = new System.Drawing.Size(149, 22);
+            this.resetToolStripMenuItem1.Size = new System.Drawing.Size(164, 22);
             this.resetToolStripMenuItem1.Text = "&Reset";
             this.resetToolStripMenuItem1.Click += new System.EventHandler(this.resetToolStripMenuItem1_Click);
             // 
             // commandListToolStripMenuItem
             // 
             this.commandListToolStripMenuItem.Name = "commandListToolStripMenuItem";
-            this.commandListToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.commandListToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.commandListToolStripMenuItem.Text = "&Command list";
             this.commandListToolStripMenuItem.Click += new System.EventHandler(this.commandListToolStripMenuItem_Click);
+            // 
+            // toggleP10ToolStripMenuItem
+            // 
+            this.toggleP10ToolStripMenuItem.Name = "toggleP10ToolStripMenuItem";
+            this.toggleP10ToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.toggleP10ToolStripMenuItem.Text = "&Toggle P1.0";
+            this.toggleP10ToolStripMenuItem.Click += new System.EventHandler(this.toggleP10ToolStripMenuItem_Click);
+            // 
+            // toggleP16ToolStripMenuItem
+            // 
+            this.toggleP16ToolStripMenuItem.Name = "toggleP16ToolStripMenuItem";
+            this.toggleP16ToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.toggleP16ToolStripMenuItem.Text = "T&oggle P1.6";
+            this.toggleP16ToolStripMenuItem.Click += new System.EventHandler(this.toggleP16ToolStripMenuItem_Click);
             // 
             // modeToolStripMenuItem
             // 
@@ -739,7 +546,8 @@
             this.rainbowToolStripMenuItem,
             this.breathingToolStripMenuItem,
             this.soundToolStripMenuItem,
-            this.temperatureToolStripMenuItem});
+            this.temperatureToolStripMenuItem,
+            this.flashToolStripMenuItem});
             this.modeToolStripMenuItem.Name = "modeToolStripMenuItem";
             this.modeToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.modeToolStripMenuItem.Text = "&Mode";
@@ -751,27 +559,27 @@
             this.offToolStripMenuItem,
             this.preferencesToolStripMenuItem});
             this.normalToolStripMenuItem.Name = "normalToolStripMenuItem";
-            this.normalToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.normalToolStripMenuItem.Text = "Normal";
+            this.normalToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.normalToolStripMenuItem.Text = "&Normal";
             // 
             // onToolStripMenuItem
             // 
             this.onToolStripMenuItem.Name = "onToolStripMenuItem";
-            this.onToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.onToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.onToolStripMenuItem.Text = "&On";
             this.onToolStripMenuItem.Click += new System.EventHandler(this.onToolStripMenuItem_Click);
             // 
             // offToolStripMenuItem
             // 
             this.offToolStripMenuItem.Name = "offToolStripMenuItem";
-            this.offToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.offToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.offToolStripMenuItem.Text = "&Off";
             this.offToolStripMenuItem.Click += new System.EventHandler(this.offToolStripMenuItem_Click);
             // 
             // preferencesToolStripMenuItem
             // 
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.preferencesToolStripMenuItem.Text = "&Preferences";
             this.preferencesToolStripMenuItem.Click += new System.EventHandler(this.preferencesToolStripMenuItem_Click);
             // 
@@ -781,8 +589,8 @@
             this.onToolStripMenuItem3,
             this.offToolStripMenuItem3});
             this.rainbowToolStripMenuItem.Name = "rainbowToolStripMenuItem";
-            this.rainbowToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.rainbowToolStripMenuItem.Text = "Rainbow";
+            this.rainbowToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.rainbowToolStripMenuItem.Text = "&Rainbow";
             // 
             // onToolStripMenuItem3
             // 
@@ -805,8 +613,8 @@
             this.offToolStripMenuItem4,
             this.preferencesToolStripMenuItem3});
             this.breathingToolStripMenuItem.Name = "breathingToolStripMenuItem";
-            this.breathingToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.breathingToolStripMenuItem.Text = "Breathing";
+            this.breathingToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.breathingToolStripMenuItem.Text = "&Breathing";
             // 
             // onToolStripMenuItem4
             // 
@@ -836,7 +644,7 @@
             this.offToolStripMenuItem1,
             this.preferencesToolStripMenuItem1});
             this.soundToolStripMenuItem.Name = "soundToolStripMenuItem";
-            this.soundToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.soundToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.soundToolStripMenuItem.Text = "&Sound";
             // 
             // onToolStripMenuItem1
@@ -867,7 +675,7 @@
             this.offToolStripMenuItem2,
             this.preferencesToolStripMenuItem2});
             this.temperatureToolStripMenuItem.Name = "temperatureToolStripMenuItem";
-            this.temperatureToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.temperatureToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.temperatureToolStripMenuItem.Text = "&Temperature";
             // 
             // onToolStripMenuItem2
@@ -887,6 +695,37 @@
             this.preferencesToolStripMenuItem2.Name = "preferencesToolStripMenuItem2";
             this.preferencesToolStripMenuItem2.Size = new System.Drawing.Size(135, 22);
             this.preferencesToolStripMenuItem2.Text = "&Preferences";
+            // 
+            // flashToolStripMenuItem
+            // 
+            this.flashToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.onToolStripMenuItem5,
+            this.offToolStripMenuItem5,
+            this.preferencesToolStripMenuItem4});
+            this.flashToolStripMenuItem.Name = "flashToolStripMenuItem";
+            this.flashToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.flashToolStripMenuItem.Text = "&Flash";
+            // 
+            // onToolStripMenuItem5
+            // 
+            this.onToolStripMenuItem5.Name = "onToolStripMenuItem5";
+            this.onToolStripMenuItem5.Size = new System.Drawing.Size(152, 22);
+            this.onToolStripMenuItem5.Text = "&On";
+            this.onToolStripMenuItem5.Click += new System.EventHandler(this.onToolStripMenuItem5_Click);
+            // 
+            // offToolStripMenuItem5
+            // 
+            this.offToolStripMenuItem5.Name = "offToolStripMenuItem5";
+            this.offToolStripMenuItem5.Size = new System.Drawing.Size(152, 22);
+            this.offToolStripMenuItem5.Text = "&Off";
+            this.offToolStripMenuItem5.Click += new System.EventHandler(this.offToolStripMenuItem5_Click);
+            // 
+            // preferencesToolStripMenuItem4
+            // 
+            this.preferencesToolStripMenuItem4.Name = "preferencesToolStripMenuItem4";
+            this.preferencesToolStripMenuItem4.Size = new System.Drawing.Size(152, 22);
+            this.preferencesToolStripMenuItem4.Text = "&Preferences";
+            this.preferencesToolStripMenuItem4.Click += new System.EventHandler(this.preferencesToolStripMenuItem4_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -916,26 +755,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(646, 311);
-            this.Controls.Add(this.gled);
-            this.Controls.Add(this.rled);
-            this.Controls.Add(this.resetsliders);
             this.Controls.Add(this.btntopmost);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnPorts);
-            this.Controls.Add(this.blueupdown);
-            this.Controls.Add(this.greenupdown);
-            this.Controls.Add(this.redupdown);
-            this.Controls.Add(this.resetled);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.colorpick);
             this.Controls.Add(this.openport);
-            this.Controls.Add(this.bluebar);
             this.Controls.Add(this.portBox);
-            this.Controls.Add(this.greenbar);
-            this.Controls.Add(this.redbar);
-            this.Controls.Add(this.bleds);
             this.Controls.Add(this.baudBox);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -949,12 +773,6 @@
             this.Resize += new System.EventHandler(this.Form1_Resize);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.blueupdown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.greenupdown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.redupdown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bluebar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.greenbar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.redbar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.baudBox)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -965,7 +783,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button resetsliders;
         internal System.Windows.Forms.CheckBox btntopmost;
         internal System.Windows.Forms.Label Label10;
         internal System.Windows.Forms.Label Label11;
@@ -991,29 +808,13 @@
         internal System.Windows.Forms.Label Label20;
         internal System.Windows.Forms.Label Label21;
         private System.Windows.Forms.Button btnPorts;
-        internal System.Windows.Forms.NumericUpDown blueupdown;
-        internal System.Windows.Forms.NumericUpDown greenupdown;
-        internal System.Windows.Forms.NumericUpDown redupdown;
-        private System.Windows.Forms.Button resetled;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        internal System.Windows.Forms.ColorDialog ColorDialog;
-        private System.Windows.Forms.Button colorpick;
         internal System.Windows.Forms.CheckBox openport;
-        private System.Windows.Forms.TrackBar bluebar;
         private System.Windows.Forms.ComboBox portBox;
-        private System.Windows.Forms.TrackBar greenbar;
-        private System.Windows.Forms.TrackBar redbar;
-        private System.Windows.Forms.Button bleds;
         private System.Windows.Forms.NumericUpDown baudBox;
         internal System.Windows.Forms.TextBox txtPort1;
         private System.Windows.Forms.NotifyIcon taskbarIcon;
-        private System.Windows.Forms.CheckBox rled;
-        private System.Windows.Forms.CheckBox gled;
         private System.Windows.Forms.Label b1;
         private System.Windows.Forms.Label b2;
-        private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
@@ -1046,6 +847,12 @@
         private System.Windows.Forms.ToolStripMenuItem onToolStripMenuItem4;
         private System.Windows.Forms.ToolStripMenuItem offToolStripMenuItem4;
         private System.Windows.Forms.ToolStripMenuItem preferencesToolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem flashToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem onToolStripMenuItem5;
+        private System.Windows.Forms.ToolStripMenuItem offToolStripMenuItem5;
+        private System.Windows.Forms.ToolStripMenuItem preferencesToolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem toggleP10ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toggleP16ToolStripMenuItem;
 
     }
 }

@@ -11,7 +11,6 @@ namespace Csharp_SERIAL_KILLER_beta
         {
             InitializeComponent();
         }
-        public static Color audioColor;
         public static bool soundMode = false;
 
         MMDeviceEnumerator DevEnum = new MMDeviceEnumerator();
@@ -29,16 +28,6 @@ namespace Csharp_SERIAL_KILLER_beta
             comboBox1.SelectedIndex = 0;
             radioRed.Checked = true;
 
-            if (Form1.connected)
-            {
-                btnStart.Enabled = true;
-                btnStop.Enabled = true;
-            }
-            else
-            {
-                btnStart.Enabled = false;
-                btnStop.Enabled = false;
-            }
         }
         
         private void timer1_Tick(object sender, EventArgs e)

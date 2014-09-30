@@ -1,6 +1,6 @@
 ﻿namespace Csharp_SERIAL_KILLER_beta
 {
-    partial class flashingControl
+    partial class strobeControl
     {
         /// <summary>
         /// Required designer variable.
@@ -100,7 +100,7 @@
             this.btnStop.TabIndex = 46;
             this.btnStop.Text = "Stop";
             this.btnStop.UseVisualStyleBackColor = true;
-            this.btnStop.Click += new System.EventHandler(this.flashModeStop);
+            this.btnStop.Click += new System.EventHandler(this.strobeModeStop);
             // 
             // btnStart
             // 
@@ -110,7 +110,7 @@
             this.btnStart.TabIndex = 45;
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = true;
-            this.btnStart.Click += new System.EventHandler(this.flashModeStart);
+            this.btnStart.Click += new System.EventHandler(this.strobeModeStart);
             // 
             // label1
             // 
@@ -242,7 +242,7 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // flashingControl
+            // strobeControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -263,9 +263,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.label4);
-            this.Name = "flashingControl";
-            this.Text = "flashingControl";
-            this.Load += new System.EventHandler(this.flashingControl_Load);
+            this.Name = "strobeControl";
+            this.Text = "strobeControl";
+            this.Load += new System.EventHandler(this.strobeControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.blueupdown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.greenupdown)).EndInit();

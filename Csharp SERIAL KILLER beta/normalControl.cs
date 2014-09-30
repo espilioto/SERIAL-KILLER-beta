@@ -17,6 +17,7 @@ namespace Csharp_SERIAL_KILLER_beta
             InitializeComponent();
         }
 
+        public static bool normalMode = false;
         int r = 0, g = 0, b = 0;
 
         private void normalControl_Load(object sender, EventArgs e)

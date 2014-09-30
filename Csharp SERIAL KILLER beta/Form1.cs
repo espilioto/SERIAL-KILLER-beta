@@ -10,14 +10,12 @@ namespace Csharp_SERIAL_KILLER_beta
         public normalControl normalControl = new normalControl();
         public soundControl soundControl = new soundControl();
         public breathingControl breathingControl = new breathingControl();
-        public flashingControl flashingControl = new flashingControl();
+        public strobeControl strobeControl = new strobeControl();
 
         MMDeviceEnumerator DevEnum = new MMDeviceEnumerator();
         MMDevice device;
 
         public static SerialPort uart = new SerialPort(); //commands:     ping ;  off ;   rgb r,g,b;  out,bit,0/1;    sta,;   man ;/help ;    
-        int port1, port2;
-        bool rOn = false, gOn = false;
         public static bool connected = false;
         string s;
 
@@ -36,7 +34,7 @@ namespace Csharp_SERIAL_KILLER_beta
             device = DevEnum.GetDefaultAudioEndpoint(EDataFlow.eRender, ERole.eMultimedia);
 
             enableforms(false);
-            baudBox.Text = "9600";
+            baudBox.Text = "19200";
             foreach (string portname in SerialPort.GetPortNames())
             {
                 portBox.Items.Add(portname);
@@ -93,13 +91,21 @@ namespace Csharp_SERIAL_KILLER_beta
 
         public void enableforms(bool b)
         {
-            btnRfr.Enabled = b;
-            btnPorts.Enabled = b;
             Leds.Enabled = b;
-            idleToolStripMenuItem1.Enabled = b;
-            resetToolStripMenuItem1.Enabled = b;
-            toggleP10ToolStripMenuItem.Enabled = b;         //red led
-            toggleP16ToolStripMenuItem.Enabled = b;         //green led
+            //idleToolStripMenuItem1.Enabled = b;
+            //resetToolStripMenuItem1.Enabled = b;
+            btnNormal.Enabled = b;
+            btnNormalPrefs.Enabled = b;
+            btnRainbow.Enabled = b;
+            btnRainbowPrefs.Enabled = b;
+            btnBreathing.Enabled = b;
+            btnBreathingPrefs.Enabled = b;
+            btnSound.Enabled = b;
+            btnSoundPrefs.Enabled = b;
+            btnStrobe.Enabled = b;
+            btnStrobePrefs.Enabled = b;
+            btnTemp.Enabled = b;
+            btnTempPrefs.Enabled = b;
             onToolStripMenuItem.Enabled = b;                //normal mode
             offToolStripMenuItem.Enabled = b;               //normal mode
             preferencesToolStripMenuItem.Enabled = b;       //normal mode
@@ -119,75 +125,10 @@ namespace Csharp_SERIAL_KILLER_beta
             preferencesToolStripMenuItem4.Enabled = b;      //flashing mode
         }
 
-        private void btntopmost_CheckedChanged(object sender, EventArgs e)
-        {
-            TopMost = btntopmost.Checked;
-        }
-
         public static void resetrgbled()
         {
             uart.Write("off;");
         }
-
-        private void portstatus()
-        {
-            uart.Write("sta;");
-
-            if (uart.BytesToRead == 2)
-                port1 = uart.ReadByte();
-            port2 = uart.ReadByte();
-
-            //b1.Enabled = true;  b1.Text = Convert.ToString(port1, 2); //debugging
-            //b2.Enabled = true;  b2.Text = Convert.ToString(port2, 2); //debugging
-
-            txtPort1.Clear();
-            txtPort2.Clear();
-
-            txtPort1.Text = GetIntBinaryString(port1);
-            txtPort2.Text = GetIntBinaryString(port2);
-        }
-        private void btnPorts_Click(object sender, EventArgs e)
-        {
-            if (btnPorts.Text == "Port status")
-            {
-                this.Width = this.Size.Width + panel1.Size.Width;
-                panel1.Show();
-                portstatus();
-                btnPorts.Text = "Close";
-            }
-            else
-            {
-                this.Width = this.Size.Width - panel1.Size.Width;
-                btnPorts.Text = "Port status";
-            }
-        }
-        private void btnRfr_Click(object sender, EventArgs e)
-        {
-            portstatus();
-        }
-        string GetIntBinaryString(int n)
-        {
-            string b = ""; //must initialize string
-            int pos = 7;
-            int i = 0;
-
-            while (i < 8)
-            {
-                if ((n & (1 << i)) != 0)
-                {
-                    b += "1        ";
-                }
-                else
-                {
-                    b += "0        ";
-                }
-                pos--;
-                i++;
-            }
-            return b;
-        }
-
-
 
         #region minimize to tray stuff  //todo minimize menu stuff
 
@@ -253,7 +194,6 @@ namespace Csharp_SERIAL_KILLER_beta
 
         #endregion
 
-
         private void idleToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             uart.Write("off;");
@@ -274,32 +214,6 @@ namespace Csharp_SERIAL_KILLER_beta
             "\n\r>sta;\t\tReturns Port 1 and Port 2 GPIO status (GUI only)." +
             "\n\r>man;/help ;\tPrints this screen.\n\n\r");
         }        //cmd list
-        private void toggleP10ToolStripMenuItem_Click(object sender, EventArgs e)             //P1.0
-        {
-            if (!rOn)
-            {
-                uart.Write("bit " + 0 + "," + 1 + ";");
-                rOn = !rOn;
-            }
-            else
-            {
-                uart.Write("bit " + 0 + "," + 0 + ";");
-                rOn = !rOn;
-            }
-        }
-        private void toggleP16ToolStripMenuItem_Click(object sender, EventArgs e)             //P1.6
-        {
-            if (!gOn)
-            {
-                uart.Write("bit " + 6 + "," + 1 + ";");
-                gOn = !gOn;
-            }
-            else
-            {
-                uart.Write("bit " + 6 + "," + 0 + ";");
-                gOn = !gOn;
-            }
-        }
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("2bling4u");
@@ -318,11 +232,12 @@ namespace Csharp_SERIAL_KILLER_beta
         }          //changelog 
         private void onToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            normalControl.normalMode = true;
+            btnNormalPrefs.Enabled = true;
         }                 //normal on
         private void offToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            normalControl.normalMode = false;
         }                //normal off
         private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -332,6 +247,10 @@ namespace Csharp_SERIAL_KILLER_beta
         {
             enableforms(false);
             offToolStripMenuItem3.Enabled = true;
+            btnRainbow.Enabled = true;
+            btnRainbow.Checked = true;
+            btnRainbowPrefs.Enabled = true;
+
             int r = 255, g = 0, b = 0;
 
             uart.Write("rgb " + 255 + "," + 0 + "," + 0 + ";");                 //r max 
@@ -374,17 +293,24 @@ namespace Csharp_SERIAL_KILLER_beta
         {
             resetrgbled();
             enableforms(true);
+            btnRainbow.Checked = false;
         }               //rainbow off
         private void onToolStripMenuItem4_Click(object sender, EventArgs e)
         {
             breathingControl.breathingModeStart(this, null);
+        
             enableforms(false);
             offToolStripMenuItem4.Enabled = true;
+            preferencesToolStripMenuItem3.Enabled = true;
+            btnBreathing.Enabled = true;
+            btnBreathing.Checked = true;
+            btnBreathingPrefs.Enabled = true;
         }                //breath on
         private void offToolStripMenuItem4_Click(object sender, EventArgs e)
         {
             breathingControl.breathingModeStop(this, null);
             enableforms(true);
+            btnBreathing.Checked = false;
         }               //breath off
         private void preferencesToolStripMenuItem3_Click(object sender, EventArgs e)
         {
@@ -399,6 +325,9 @@ namespace Csharp_SERIAL_KILLER_beta
             enableforms(false);
             offToolStripMenuItem1.Enabled = true;
             preferencesToolStripMenuItem1.Enabled = true;
+            btnSound.Enabled = true;
+            btnSound.Checked = true;
+            btnSoundPrefs.Enabled = true;
         }                //sound on
         private void offToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -406,6 +335,7 @@ namespace Csharp_SERIAL_KILLER_beta
             soundControl.soundModeStop(this, null);
 
             enableforms(true);
+            btnSound.Checked = false;
         }               //sound off
         private void preferencesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -413,25 +343,29 @@ namespace Csharp_SERIAL_KILLER_beta
         }       //sound prefs
         private void onToolStripMenuItem5_Click(object sender, EventArgs e)
         {
-            flashingControl.flashMode = true;
-            flashingControl.r = 255;
-            flashingControl.flashModeStart(this, null);
+            strobeControl.strobeMode = true;
+            strobeControl.r = 255;
+            strobeControl.strobeModeStart(this, null);
 
             enableforms(false);
             offToolStripMenuItem5.Enabled = true;
             preferencesToolStripMenuItem4.Enabled = true;
-        }
+            btnStrobe.Enabled = true;
+            btnStrobe.Checked = true;
+            btnStrobePrefs.Enabled = true;
+        }               //strobe mode
         private void offToolStripMenuItem5_Click(object sender, EventArgs e)
         {
-            flashingControl.flashMode = false;
-            flashingControl.flashModeStop(this, null);
-
+            strobeControl.strobeMode = false;
+            strobeControl.strobeModeStop(this, null);
+            
             enableforms(true);
-        }
+            btnStrobe.Checked = false;
+        }              //strobe mode
         private void preferencesToolStripMenuItem4_Click(object sender, EventArgs e)
         {
-            flashingControl.ShowDialog();
-        }
+            strobeControl.ShowDialog();
+        }       //strobe prefs
 
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)

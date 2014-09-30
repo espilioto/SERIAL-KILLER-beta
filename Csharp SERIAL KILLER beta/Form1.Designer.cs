@@ -30,37 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.btntopmost = new System.Windows.Forms.CheckBox();
-            this.Label10 = new System.Windows.Forms.Label();
-            this.Label11 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.b2 = new System.Windows.Forms.Label();
-            this.b1 = new System.Windows.Forms.Label();
-            this.txtPort1 = new System.Windows.Forms.TextBox();
-            this.Label12 = new System.Windows.Forms.Label();
-            this.Label13 = new System.Windows.Forms.Label();
-            this.Label14 = new System.Windows.Forms.Label();
-            this.Label15 = new System.Windows.Forms.Label();
-            this.Label16 = new System.Windows.Forms.Label();
-            this.Label17 = new System.Windows.Forms.Label();
-            this.txtPort2 = new System.Windows.Forms.TextBox();
-            this.byte2 = new System.Windows.Forms.Label();
-            this.byte1 = new System.Windows.Forms.Label();
-            this.btnRfr = new System.Windows.Forms.Button();
-            this.Label18 = new System.Windows.Forms.Label();
-            this.Label9 = new System.Windows.Forms.Label();
-            this.Label8 = new System.Windows.Forms.Label();
-            this.Label7 = new System.Windows.Forms.Label();
-            this.Label6 = new System.Windows.Forms.Label();
-            this.Label5 = new System.Windows.Forms.Label();
-            this.Label4 = new System.Windows.Forms.Label();
-            this.Label19 = new System.Windows.Forms.Label();
-            this.Label20 = new System.Windows.Forms.Label();
-            this.Label21 = new System.Windows.Forms.Label();
-            this.btnPorts = new System.Windows.Forms.Button();
             this.openport = new System.Windows.Forms.CheckBox();
             this.portBox = new System.Windows.Forms.ComboBox();
-            this.baudBox = new System.Windows.Forms.NumericUpDown();
             this.taskbarIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,8 +42,6 @@
             this.idleToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.resetToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.commandListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toggleP10ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toggleP16ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.normalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.onToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -100,314 +69,28 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changelogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.baudBox)).BeginInit();
+            this.baudBox = new System.Windows.Forms.NumericUpDown();
+            this.btnNormal = new System.Windows.Forms.CheckBox();
+            this.btnRainbow = new System.Windows.Forms.CheckBox();
+            this.btnBreathing = new System.Windows.Forms.CheckBox();
+            this.btnSound = new System.Windows.Forms.CheckBox();
+            this.btnStrobe = new System.Windows.Forms.CheckBox();
+            this.btnTemp = new System.Windows.Forms.CheckBox();
+            this.btnRainbowPrefs = new System.Windows.Forms.Button();
+            this.btnBreathingPrefs = new System.Windows.Forms.Button();
+            this.btnSoundPrefs = new System.Windows.Forms.Button();
+            this.btnStrobePrefs = new System.Windows.Forms.Button();
+            this.btnTempPrefs = new System.Windows.Forms.Button();
+            this.btnNormalPrefs = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.baudBox)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btntopmost
-            // 
-            this.btntopmost.Appearance = System.Windows.Forms.Appearance.Button;
-            this.btntopmost.AutoSize = true;
-            this.btntopmost.Location = new System.Drawing.Point(9, 281);
-            this.btntopmost.Name = "btntopmost";
-            this.btntopmost.Size = new System.Drawing.Size(71, 23);
-            this.btntopmost.TabIndex = 82;
-            this.btntopmost.Text = "Stay on top";
-            this.btntopmost.UseVisualStyleBackColor = true;
-            this.btntopmost.CheckedChanged += new System.EventHandler(this.btntopmost_CheckedChanged);
-            // 
-            // Label10
-            // 
-            this.Label10.AutoSize = true;
-            this.Label10.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.Label10.Location = new System.Drawing.Point(275, 171);
-            this.Label10.Name = "Label10";
-            this.Label10.Size = new System.Drawing.Size(34, 13);
-            this.Label10.TabIndex = 82;
-            this.Label10.Text = "BIT7";
-            // 
-            // Label11
-            // 
-            this.Label11.AutoSize = true;
-            this.Label11.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.Label11.Location = new System.Drawing.Point(237, 171);
-            this.Label11.Name = "Label11";
-            this.Label11.Size = new System.Drawing.Size(34, 13);
-            this.Label11.TabIndex = 81;
-            this.Label11.Text = "BIT6";
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.b2);
-            this.panel1.Controls.Add(this.b1);
-            this.panel1.Controls.Add(this.txtPort1);
-            this.panel1.Controls.Add(this.Label10);
-            this.panel1.Controls.Add(this.Label11);
-            this.panel1.Controls.Add(this.Label12);
-            this.panel1.Controls.Add(this.Label13);
-            this.panel1.Controls.Add(this.Label14);
-            this.panel1.Controls.Add(this.Label15);
-            this.panel1.Controls.Add(this.Label16);
-            this.panel1.Controls.Add(this.Label17);
-            this.panel1.Controls.Add(this.txtPort2);
-            this.panel1.Controls.Add(this.byte2);
-            this.panel1.Controls.Add(this.byte1);
-            this.panel1.Controls.Add(this.btnRfr);
-            this.panel1.Controls.Add(this.Label18);
-            this.panel1.Controls.Add(this.Label9);
-            this.panel1.Controls.Add(this.Label8);
-            this.panel1.Controls.Add(this.Label7);
-            this.panel1.Controls.Add(this.Label6);
-            this.panel1.Controls.Add(this.Label5);
-            this.panel1.Controls.Add(this.Label4);
-            this.panel1.Controls.Add(this.Label19);
-            this.panel1.Controls.Add(this.Label20);
-            this.panel1.Controls.Add(this.Label21);
-            this.panel1.Location = new System.Drawing.Point(649, 24);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(322, 275);
-            this.panel1.TabIndex = 80;
-            // 
-            // b2
-            // 
-            this.b2.Enabled = false;
-            this.b2.Location = new System.Drawing.Point(9, 214);
-            this.b2.Name = "b2";
-            this.b2.Size = new System.Drawing.Size(262, 24);
-            this.b2.TabIndex = 85;
-            // 
-            // b1
-            // 
-            this.b1.Enabled = false;
-            this.b1.Location = new System.Drawing.Point(9, 91);
-            this.b1.Name = "b1";
-            this.b1.Size = new System.Drawing.Size(262, 24);
-            this.b1.TabIndex = 84;
-            // 
-            // txtPort1
-            // 
-            this.txtPort1.Enabled = false;
-            this.txtPort1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.txtPort1.Location = new System.Drawing.Point(12, 66);
-            this.txtPort1.Name = "txtPort1";
-            this.txtPort1.ReadOnly = true;
-            this.txtPort1.Size = new System.Drawing.Size(297, 21);
-            this.txtPort1.TabIndex = 83;
-            // 
-            // Label12
-            // 
-            this.Label12.AutoSize = true;
-            this.Label12.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.Label12.Location = new System.Drawing.Point(199, 171);
-            this.Label12.Name = "Label12";
-            this.Label12.Size = new System.Drawing.Size(34, 13);
-            this.Label12.TabIndex = 80;
-            this.Label12.Text = "BIT5";
-            // 
-            // Label13
-            // 
-            this.Label13.AutoSize = true;
-            this.Label13.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.Label13.Location = new System.Drawing.Point(123, 171);
-            this.Label13.Name = "Label13";
-            this.Label13.Size = new System.Drawing.Size(34, 13);
-            this.Label13.TabIndex = 79;
-            this.Label13.Text = "BIT3";
-            // 
-            // Label14
-            // 
-            this.Label14.AutoSize = true;
-            this.Label14.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.Label14.Location = new System.Drawing.Point(161, 171);
-            this.Label14.Name = "Label14";
-            this.Label14.Size = new System.Drawing.Size(34, 13);
-            this.Label14.TabIndex = 78;
-            this.Label14.Text = "BIT4";
-            // 
-            // Label15
-            // 
-            this.Label15.AutoSize = true;
-            this.Label15.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.Label15.Location = new System.Drawing.Point(85, 171);
-            this.Label15.Name = "Label15";
-            this.Label15.Size = new System.Drawing.Size(34, 13);
-            this.Label15.TabIndex = 77;
-            this.Label15.Text = "BIT2";
-            // 
-            // Label16
-            // 
-            this.Label16.AutoSize = true;
-            this.Label16.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.Label16.Location = new System.Drawing.Point(47, 171);
-            this.Label16.Name = "Label16";
-            this.Label16.Size = new System.Drawing.Size(34, 13);
-            this.Label16.TabIndex = 76;
-            this.Label16.Text = "BIT1";
-            // 
-            // Label17
-            // 
-            this.Label17.AutoSize = true;
-            this.Label17.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.Label17.Location = new System.Drawing.Point(9, 171);
-            this.Label17.Name = "Label17";
-            this.Label17.Size = new System.Drawing.Size(34, 13);
-            this.Label17.TabIndex = 75;
-            this.Label17.Text = "BIT0";
-            // 
-            // txtPort2
-            // 
-            this.txtPort2.Enabled = false;
-            this.txtPort2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.txtPort2.Location = new System.Drawing.Point(12, 187);
-            this.txtPort2.Name = "txtPort2";
-            this.txtPort2.ReadOnly = true;
-            this.txtPort2.Size = new System.Drawing.Size(297, 21);
-            this.txtPort2.TabIndex = 74;
-            // 
-            // byte2
-            // 
-            this.byte2.AutoSize = true;
-            this.byte2.Location = new System.Drawing.Point(24, 148);
-            this.byte2.Name = "byte2";
-            this.byte2.Size = new System.Drawing.Size(0, 13);
-            this.byte2.TabIndex = 55;
-            // 
-            // byte1
-            // 
-            this.byte1.AutoSize = true;
-            this.byte1.Location = new System.Drawing.Point(24, 113);
-            this.byte1.Name = "byte1";
-            this.byte1.Size = new System.Drawing.Size(0, 13);
-            this.byte1.TabIndex = 54;
-            // 
-            // btnRfr
-            // 
-            this.btnRfr.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.btnRfr.Location = new System.Drawing.Point(116, 241);
-            this.btnRfr.Name = "btnRfr";
-            this.btnRfr.Size = new System.Drawing.Size(75, 23);
-            this.btnRfr.TabIndex = 53;
-            this.btnRfr.Text = "Refresh";
-            this.btnRfr.UseVisualStyleBackColor = true;
-            this.btnRfr.Click += new System.EventHandler(this.btnRfr_Click);
-            // 
-            // Label18
-            // 
-            this.Label18.AutoSize = true;
-            this.Label18.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.Label18.Location = new System.Drawing.Point(119, 135);
-            this.Label18.Name = "Label18";
-            this.Label18.Size = new System.Drawing.Size(68, 18);
-            this.Label18.TabIndex = 17;
-            this.Label18.Text = "PORT 2";
-            // 
-            // Label9
-            // 
-            this.Label9.AutoSize = true;
-            this.Label9.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.Label9.Location = new System.Drawing.Point(275, 50);
-            this.Label9.Name = "Label9";
-            this.Label9.Size = new System.Drawing.Size(34, 13);
-            this.Label9.TabIndex = 8;
-            this.Label9.Text = "BIT7";
-            // 
-            // Label8
-            // 
-            this.Label8.AutoSize = true;
-            this.Label8.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.Label8.Location = new System.Drawing.Point(237, 50);
-            this.Label8.Name = "Label8";
-            this.Label8.Size = new System.Drawing.Size(34, 13);
-            this.Label8.TabIndex = 7;
-            this.Label8.Text = "BIT6";
-            // 
-            // Label7
-            // 
-            this.Label7.AutoSize = true;
-            this.Label7.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.Label7.Location = new System.Drawing.Point(199, 50);
-            this.Label7.Name = "Label7";
-            this.Label7.Size = new System.Drawing.Size(34, 13);
-            this.Label7.TabIndex = 6;
-            this.Label7.Text = "BIT5";
-            // 
-            // Label6
-            // 
-            this.Label6.AutoSize = true;
-            this.Label6.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.Label6.Location = new System.Drawing.Point(123, 50);
-            this.Label6.Name = "Label6";
-            this.Label6.Size = new System.Drawing.Size(34, 13);
-            this.Label6.TabIndex = 5;
-            this.Label6.Text = "BIT3";
-            // 
-            // Label5
-            // 
-            this.Label5.AutoSize = true;
-            this.Label5.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.Label5.Location = new System.Drawing.Point(161, 50);
-            this.Label5.Name = "Label5";
-            this.Label5.Size = new System.Drawing.Size(34, 13);
-            this.Label5.TabIndex = 4;
-            this.Label5.Text = "BIT4";
-            // 
-            // Label4
-            // 
-            this.Label4.AutoSize = true;
-            this.Label4.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.Label4.Location = new System.Drawing.Point(85, 50);
-            this.Label4.Name = "Label4";
-            this.Label4.Size = new System.Drawing.Size(34, 13);
-            this.Label4.TabIndex = 3;
-            this.Label4.Text = "BIT2";
-            // 
-            // Label19
-            // 
-            this.Label19.AutoSize = true;
-            this.Label19.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.Label19.Location = new System.Drawing.Point(47, 50);
-            this.Label19.Name = "Label19";
-            this.Label19.Size = new System.Drawing.Size(34, 13);
-            this.Label19.TabIndex = 2;
-            this.Label19.Text = "BIT1";
-            // 
-            // Label20
-            // 
-            this.Label20.AutoSize = true;
-            this.Label20.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.Label20.Location = new System.Drawing.Point(9, 50);
-            this.Label20.Name = "Label20";
-            this.Label20.Size = new System.Drawing.Size(34, 13);
-            this.Label20.TabIndex = 1;
-            this.Label20.Text = "BIT0";
-            // 
-            // Label21
-            // 
-            this.Label21.AutoSize = true;
-            this.Label21.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.Label21.Location = new System.Drawing.Point(118, 13);
-            this.Label21.Name = "Label21";
-            this.Label21.Size = new System.Drawing.Size(68, 18);
-            this.Label21.TabIndex = 0;
-            this.Label21.Text = "PORT 1";
-            // 
-            // btnPorts
-            // 
-            this.btnPorts.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.btnPorts.Location = new System.Drawing.Point(565, 280);
-            this.btnPorts.Name = "btnPorts";
-            this.btnPorts.Size = new System.Drawing.Size(74, 23);
-            this.btnPorts.TabIndex = 79;
-            this.btnPorts.Text = "Port status";
-            this.btnPorts.UseVisualStyleBackColor = true;
-            this.btnPorts.Click += new System.EventHandler(this.btnPorts_Click);
             // 
             // openport
             // 
             this.openport.Appearance = System.Windows.Forms.Appearance.Button;
             this.openport.AutoSize = true;
-            this.openport.Location = new System.Drawing.Point(373, 280);
+            this.openport.Location = new System.Drawing.Point(243, 276);
             this.openport.Name = "openport";
             this.openport.Size = new System.Drawing.Size(65, 23);
             this.openport.TabIndex = 0;
@@ -419,28 +102,10 @@
             // 
             this.portBox.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.portBox.FormattingEnabled = true;
-            this.portBox.Location = new System.Drawing.Point(211, 282);
+            this.portBox.Location = new System.Drawing.Point(81, 278);
             this.portBox.Name = "portBox";
             this.portBox.Size = new System.Drawing.Size(75, 21);
             this.portBox.TabIndex = 61;
-            // 
-            // baudBox
-            // 
-            this.baudBox.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.baudBox.Location = new System.Drawing.Point(292, 283);
-            this.baudBox.Maximum = new decimal(new int[] {
-            2000000,
-            0,
-            0,
-            0});
-            this.baudBox.Name = "baudBox";
-            this.baudBox.Size = new System.Drawing.Size(75, 21);
-            this.baudBox.TabIndex = 62;
-            this.baudBox.Value = new decimal(new int[] {
-            9600,
-            0,
-            0,
-            0});
             // 
             // taskbarIcon
             // 
@@ -460,7 +125,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip1.Size = new System.Drawing.Size(646, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(389, 24);
             this.menuStrip1.TabIndex = 87;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -497,8 +162,6 @@
             this.commandsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.idleToolStripMenuItem1,
             this.resetToolStripMenuItem1,
-            this.toggleP10ToolStripMenuItem,
-            this.toggleP16ToolStripMenuItem,
             this.commandListToolStripMenuItem});
             this.commandsToolStripMenuItem.Name = "commandsToolStripMenuItem";
             this.commandsToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
@@ -507,37 +170,23 @@
             // idleToolStripMenuItem1
             // 
             this.idleToolStripMenuItem1.Name = "idleToolStripMenuItem1";
-            this.idleToolStripMenuItem1.Size = new System.Drawing.Size(164, 22);
+            this.idleToolStripMenuItem1.Size = new System.Drawing.Size(149, 22);
             this.idleToolStripMenuItem1.Text = "&Idle";
             this.idleToolStripMenuItem1.Click += new System.EventHandler(this.idleToolStripMenuItem1_Click);
             // 
             // resetToolStripMenuItem1
             // 
             this.resetToolStripMenuItem1.Name = "resetToolStripMenuItem1";
-            this.resetToolStripMenuItem1.Size = new System.Drawing.Size(164, 22);
+            this.resetToolStripMenuItem1.Size = new System.Drawing.Size(149, 22);
             this.resetToolStripMenuItem1.Text = "&Reset";
             this.resetToolStripMenuItem1.Click += new System.EventHandler(this.resetToolStripMenuItem1_Click);
             // 
             // commandListToolStripMenuItem
             // 
             this.commandListToolStripMenuItem.Name = "commandListToolStripMenuItem";
-            this.commandListToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.commandListToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.commandListToolStripMenuItem.Text = "&Command list";
             this.commandListToolStripMenuItem.Click += new System.EventHandler(this.commandListToolStripMenuItem_Click);
-            // 
-            // toggleP10ToolStripMenuItem
-            // 
-            this.toggleP10ToolStripMenuItem.Name = "toggleP10ToolStripMenuItem";
-            this.toggleP10ToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.toggleP10ToolStripMenuItem.Text = "&Toggle P1.0";
-            this.toggleP10ToolStripMenuItem.Click += new System.EventHandler(this.toggleP10ToolStripMenuItem_Click);
-            // 
-            // toggleP16ToolStripMenuItem
-            // 
-            this.toggleP16ToolStripMenuItem.Name = "toggleP16ToolStripMenuItem";
-            this.toggleP16ToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.toggleP16ToolStripMenuItem.Text = "T&oggle P1.6";
-            this.toggleP16ToolStripMenuItem.Click += new System.EventHandler(this.toggleP16ToolStripMenuItem_Click);
             // 
             // modeToolStripMenuItem
             // 
@@ -703,27 +352,27 @@
             this.offToolStripMenuItem5,
             this.preferencesToolStripMenuItem4});
             this.flashToolStripMenuItem.Name = "flashToolStripMenuItem";
-            this.flashToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.flashToolStripMenuItem.Text = "&Flash";
+            this.flashToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.flashToolStripMenuItem.Text = "Str&obe";
             // 
             // onToolStripMenuItem5
             // 
             this.onToolStripMenuItem5.Name = "onToolStripMenuItem5";
-            this.onToolStripMenuItem5.Size = new System.Drawing.Size(152, 22);
+            this.onToolStripMenuItem5.Size = new System.Drawing.Size(135, 22);
             this.onToolStripMenuItem5.Text = "&On";
             this.onToolStripMenuItem5.Click += new System.EventHandler(this.onToolStripMenuItem5_Click);
             // 
             // offToolStripMenuItem5
             // 
             this.offToolStripMenuItem5.Name = "offToolStripMenuItem5";
-            this.offToolStripMenuItem5.Size = new System.Drawing.Size(152, 22);
+            this.offToolStripMenuItem5.Size = new System.Drawing.Size(135, 22);
             this.offToolStripMenuItem5.Text = "&Off";
             this.offToolStripMenuItem5.Click += new System.EventHandler(this.offToolStripMenuItem5_Click);
             // 
             // preferencesToolStripMenuItem4
             // 
             this.preferencesToolStripMenuItem4.Name = "preferencesToolStripMenuItem4";
-            this.preferencesToolStripMenuItem4.Size = new System.Drawing.Size(152, 22);
+            this.preferencesToolStripMenuItem4.Size = new System.Drawing.Size(135, 22);
             this.preferencesToolStripMenuItem4.Text = "&Preferences";
             this.preferencesToolStripMenuItem4.Click += new System.EventHandler(this.preferencesToolStripMenuItem4_Click);
             // 
@@ -750,14 +399,162 @@
             this.aboutToolStripMenuItem.Text = "&About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
+            // baudBox
+            // 
+            this.baudBox.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.baudBox.Location = new System.Drawing.Point(162, 278);
+            this.baudBox.Maximum = new decimal(new int[] {
+            2000000,
+            0,
+            0,
+            0});
+            this.baudBox.Name = "baudBox";
+            this.baudBox.Size = new System.Drawing.Size(75, 21);
+            this.baudBox.TabIndex = 62;
+            this.baudBox.Value = new decimal(new int[] {
+            19200,
+            0,
+            0,
+            0});
+            // 
+            // btnNormal
+            // 
+            this.btnNormal.Appearance = System.Windows.Forms.Appearance.Button;
+            this.btnNormal.Location = new System.Drawing.Point(102, 81);
+            this.btnNormal.Name = "btnNormal";
+            this.btnNormal.Size = new System.Drawing.Size(89, 46);
+            this.btnNormal.TabIndex = 88;
+            this.btnNormal.Text = "Normal ";
+            this.btnNormal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnNormal.UseVisualStyleBackColor = true;
+            // 
+            // btnRainbow
+            // 
+            this.btnRainbow.Appearance = System.Windows.Forms.Appearance.Button;
+            this.btnRainbow.Location = new System.Drawing.Point(197, 81);
+            this.btnRainbow.Name = "btnRainbow";
+            this.btnRainbow.Size = new System.Drawing.Size(89, 46);
+            this.btnRainbow.TabIndex = 89;
+            this.btnRainbow.Text = "Rainbow ";
+            this.btnRainbow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnRainbow.UseVisualStyleBackColor = true;
+            // 
+            // btnBreathing
+            // 
+            this.btnBreathing.Appearance = System.Windows.Forms.Appearance.Button;
+            this.btnBreathing.Location = new System.Drawing.Point(102, 133);
+            this.btnBreathing.Name = "btnBreathing";
+            this.btnBreathing.Size = new System.Drawing.Size(89, 46);
+            this.btnBreathing.TabIndex = 90;
+            this.btnBreathing.Text = "Breathing";
+            this.btnBreathing.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnBreathing.UseVisualStyleBackColor = true;
+            // 
+            // btnSound
+            // 
+            this.btnSound.Appearance = System.Windows.Forms.Appearance.Button;
+            this.btnSound.Location = new System.Drawing.Point(197, 133);
+            this.btnSound.Name = "btnSound";
+            this.btnSound.Size = new System.Drawing.Size(89, 46);
+            this.btnSound.TabIndex = 91;
+            this.btnSound.Text = "Sound";
+            this.btnSound.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnSound.UseVisualStyleBackColor = true;
+            // 
+            // btnStrobe
+            // 
+            this.btnStrobe.Appearance = System.Windows.Forms.Appearance.Button;
+            this.btnStrobe.Location = new System.Drawing.Point(197, 185);
+            this.btnStrobe.Name = "btnStrobe";
+            this.btnStrobe.Size = new System.Drawing.Size(89, 46);
+            this.btnStrobe.TabIndex = 92;
+            this.btnStrobe.Text = "Strobe";
+            this.btnStrobe.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnStrobe.UseVisualStyleBackColor = true;
+            // 
+            // btnTemp
+            // 
+            this.btnTemp.Appearance = System.Windows.Forms.Appearance.Button;
+            this.btnTemp.Location = new System.Drawing.Point(102, 185);
+            this.btnTemp.Name = "btnTemp";
+            this.btnTemp.Size = new System.Drawing.Size(89, 46);
+            this.btnTemp.TabIndex = 93;
+            this.btnTemp.Text = "Temperature";
+            this.btnTemp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnTemp.UseVisualStyleBackColor = true;
+            // 
+            // btnRainbowPrefs
+            // 
+            this.btnRainbowPrefs.Image = global::Csharp_SERIAL_KILLER_beta.Properties.Resources.gear;
+            this.btnRainbowPrefs.Location = new System.Drawing.Point(285, 81);
+            this.btnRainbowPrefs.Name = "btnRainbowPrefs";
+            this.btnRainbowPrefs.Size = new System.Drawing.Size(28, 46);
+            this.btnRainbowPrefs.TabIndex = 95;
+            this.btnRainbowPrefs.UseVisualStyleBackColor = true;
+            // 
+            // btnBreathingPrefs
+            // 
+            this.btnBreathingPrefs.Image = global::Csharp_SERIAL_KILLER_beta.Properties.Resources.gear;
+            this.btnBreathingPrefs.Location = new System.Drawing.Point(75, 133);
+            this.btnBreathingPrefs.Name = "btnBreathingPrefs";
+            this.btnBreathingPrefs.Size = new System.Drawing.Size(28, 46);
+            this.btnBreathingPrefs.TabIndex = 96;
+            this.btnBreathingPrefs.UseVisualStyleBackColor = true;
+            // 
+            // btnSoundPrefs
+            // 
+            this.btnSoundPrefs.Image = global::Csharp_SERIAL_KILLER_beta.Properties.Resources.gear;
+            this.btnSoundPrefs.Location = new System.Drawing.Point(285, 133);
+            this.btnSoundPrefs.Name = "btnSoundPrefs";
+            this.btnSoundPrefs.Size = new System.Drawing.Size(28, 46);
+            this.btnSoundPrefs.TabIndex = 97;
+            this.btnSoundPrefs.UseVisualStyleBackColor = true;
+            // 
+            // btnStrobePrefs
+            // 
+            this.btnStrobePrefs.Image = global::Csharp_SERIAL_KILLER_beta.Properties.Resources.gear;
+            this.btnStrobePrefs.Location = new System.Drawing.Point(285, 185);
+            this.btnStrobePrefs.Name = "btnStrobePrefs";
+            this.btnStrobePrefs.Size = new System.Drawing.Size(28, 46);
+            this.btnStrobePrefs.TabIndex = 98;
+            this.btnStrobePrefs.UseVisualStyleBackColor = true;
+            // 
+            // btnTempPrefs
+            // 
+            this.btnTempPrefs.Image = global::Csharp_SERIAL_KILLER_beta.Properties.Resources.gear;
+            this.btnTempPrefs.Location = new System.Drawing.Point(75, 185);
+            this.btnTempPrefs.Name = "btnTempPrefs";
+            this.btnTempPrefs.Size = new System.Drawing.Size(28, 46);
+            this.btnTempPrefs.TabIndex = 99;
+            this.btnTempPrefs.UseVisualStyleBackColor = true;
+            // 
+            // btnNormalPrefs
+            // 
+            this.btnNormalPrefs.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnNormalPrefs.Image = global::Csharp_SERIAL_KILLER_beta.Properties.Resources.gear;
+            this.btnNormalPrefs.Location = new System.Drawing.Point(75, 81);
+            this.btnNormalPrefs.Name = "btnNormalPrefs";
+            this.btnNormalPrefs.Size = new System.Drawing.Size(28, 46);
+            this.btnNormalPrefs.TabIndex = 94;
+            this.btnNormalPrefs.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(646, 311);
-            this.Controls.Add(this.btntopmost);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btnPorts);
+            this.ClientSize = new System.Drawing.Size(389, 311);
+            this.Controls.Add(this.btnTempPrefs);
+            this.Controls.Add(this.btnStrobePrefs);
+            this.Controls.Add(this.btnSoundPrefs);
+            this.Controls.Add(this.btnBreathingPrefs);
+            this.Controls.Add(this.btnRainbowPrefs);
+            this.Controls.Add(this.btnNormalPrefs);
+            this.Controls.Add(this.btnTemp);
+            this.Controls.Add(this.btnStrobe);
+            this.Controls.Add(this.btnSound);
+            this.Controls.Add(this.btnBreathing);
+            this.Controls.Add(this.btnRainbow);
+            this.Controls.Add(this.btnNormal);
             this.Controls.Add(this.openport);
             this.Controls.Add(this.portBox);
             this.Controls.Add(this.baudBox);
@@ -771,11 +568,9 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Resize += new System.EventHandler(this.Form1_Resize);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.baudBox)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.baudBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -783,38 +578,9 @@
 
         #endregion
 
-        internal System.Windows.Forms.CheckBox btntopmost;
-        internal System.Windows.Forms.Label Label10;
-        internal System.Windows.Forms.Label Label11;
-        internal System.Windows.Forms.Panel panel1;
-        internal System.Windows.Forms.Label Label12;
-        internal System.Windows.Forms.Label Label13;
-        internal System.Windows.Forms.Label Label14;
-        internal System.Windows.Forms.Label Label15;
-        internal System.Windows.Forms.Label Label16;
-        internal System.Windows.Forms.Label Label17;
-        internal System.Windows.Forms.TextBox txtPort2;
-        internal System.Windows.Forms.Label byte2;
-        internal System.Windows.Forms.Label byte1;
-        private System.Windows.Forms.Button btnRfr;
-        internal System.Windows.Forms.Label Label18;
-        internal System.Windows.Forms.Label Label9;
-        internal System.Windows.Forms.Label Label8;
-        internal System.Windows.Forms.Label Label7;
-        internal System.Windows.Forms.Label Label6;
-        internal System.Windows.Forms.Label Label5;
-        internal System.Windows.Forms.Label Label4;
-        internal System.Windows.Forms.Label Label19;
-        internal System.Windows.Forms.Label Label20;
-        internal System.Windows.Forms.Label Label21;
-        private System.Windows.Forms.Button btnPorts;
         internal System.Windows.Forms.CheckBox openport;
         private System.Windows.Forms.ComboBox portBox;
-        private System.Windows.Forms.NumericUpDown baudBox;
-        internal System.Windows.Forms.TextBox txtPort1;
         private System.Windows.Forms.NotifyIcon taskbarIcon;
-        private System.Windows.Forms.Label b1;
-        private System.Windows.Forms.Label b2;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
@@ -851,8 +617,19 @@
         private System.Windows.Forms.ToolStripMenuItem onToolStripMenuItem5;
         private System.Windows.Forms.ToolStripMenuItem offToolStripMenuItem5;
         private System.Windows.Forms.ToolStripMenuItem preferencesToolStripMenuItem4;
-        private System.Windows.Forms.ToolStripMenuItem toggleP10ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toggleP16ToolStripMenuItem;
+        private System.Windows.Forms.NumericUpDown baudBox;
+        private System.Windows.Forms.CheckBox btnNormal;
+        private System.Windows.Forms.CheckBox btnRainbow;
+        private System.Windows.Forms.CheckBox btnBreathing;
+        private System.Windows.Forms.CheckBox btnSound;
+        private System.Windows.Forms.CheckBox btnStrobe;
+        private System.Windows.Forms.CheckBox btnTemp;
+        private System.Windows.Forms.Button btnNormalPrefs;
+        private System.Windows.Forms.Button btnRainbowPrefs;
+        private System.Windows.Forms.Button btnBreathingPrefs;
+        private System.Windows.Forms.Button btnSoundPrefs;
+        private System.Windows.Forms.Button btnStrobePrefs;
+        private System.Windows.Forms.Button btnTempPrefs;
 
     }
 }

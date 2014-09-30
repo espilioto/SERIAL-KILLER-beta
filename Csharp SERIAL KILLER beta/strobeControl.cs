@@ -10,18 +10,18 @@ using System.Windows.Forms;
 
 namespace Csharp_SERIAL_KILLER_beta
 {
-    public partial class flashingControl : Form
+    public partial class strobeControl : Form
     {
-        public flashingControl()
+        public strobeControl()
         {
             InitializeComponent();
         }
-
+        
+        public static bool strobeMode = false;
         public static int r = 0, g = 0, b = 0;
-        public static bool flashMode = false;
         bool on = false;
 
-        private void flashingControl_Load(object sender, EventArgs e)
+        private void strobeControl_Load(object sender, EventArgs e)
         {
             colorDialog1.FullOpen = true;
             label2.Text = (trackBar1.Value * 10 + "ms").ToString();
@@ -88,16 +88,16 @@ namespace Csharp_SERIAL_KILLER_beta
             timer1.Interval = trackBar1.Value * 10;
             label2.Text = (trackBar1.Value * 10 + "ms").ToString();
         }
-        
-        public void flashModeStart(object sender, EventArgs e)
+
+        public void strobeModeStart(object sender, EventArgs e)
         {
-            flashMode = true;
+            strobeMode = true;
 
             timer1.Start();
         }
-        public void flashModeStop(object sender, EventArgs e)
+        public void strobeModeStop(object sender, EventArgs e)
         {
-            flashMode = false;
+            strobeMode = false;
 
             timer1.Stop();
             Form1.uart.Write("off;");
@@ -105,7 +105,7 @@ namespace Csharp_SERIAL_KILLER_beta
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (Form1.connected && flashMode) 
+            if (Form1.connected && strobeMode) 
             { 
                 if (!on)
                 {

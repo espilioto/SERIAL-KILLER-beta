@@ -47,11 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="flashingControl.cs">
+    <Compile Include="strobeControl.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="flashingControl.Designer.cs">
-      <DependentUpon>flashingControl.cs</DependentUpon>
+    <Compile Include="strobeControl.Designer.cs">
+      <DependentUpon>strobeControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -73,14 +73,19 @@
     <Compile Include="breathingControl.Designer.cs">
       <DependentUpon>breathingControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="soundControl.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="soundControl.Designer.cs">
       <DependentUpon>soundControl.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="flashingControl.resx">
-      <DependentUpon>flashingControl.cs</DependentUpon>
+    <EmbeddedResource Include="strobeControl.resx">
+      <DependentUpon>strobeControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -90,14 +95,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="breathingControl.resx">
       <DependentUpon>breathingControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -117,8 +117,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <None Include="Resources\gear.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -10,7 +10,7 @@ Here is the C code for the uC (TI CCS5).
 https://github.com/espilioto/SERIAL-KILLER-MSP430
 
 At first this was meant to be a room mood lighting - led strip..thing.
-Then for some reason I dropped that for no reason and decided to install it in my pc case.
+Then I dropped that for no reason and decided to install it in my pc case.
 That's why you see all of these options.
 
 I'll update this and link some gerbers when I finish designing them.

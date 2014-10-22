@@ -24,7 +24,7 @@ http://forum.43oh.com/topic/1643-g2553-hardware-uart-hello-world-example/       
 http://forum.43oh.com/topic/1764-msp430g2553launchpad-uart-rx-example/          More serial stuff
 
 http://www.msp430launchpad.com/2010/12/njcs-launchscope-launchpad-oscilloscope.html
-This project game the idea to make this.
+This project gave me the idea to make this.
 
 Many thanks to all of you!
 

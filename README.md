@@ -13,7 +13,7 @@ At first this was meant to be a room mood lighting - led strip..thing.
 Then I dropped that for no reason and decided to install it in my pc case.
 That's why you see all of these options.
 
-I'll update this and link some gerbers when I finish designing them.
+I'll update this and link some gerbers when I finish designing the pcb.
 
 Many thanks to the 43oh forum for the help (even though I didn't even start a new thread) :P
 It's a very nice place if you're into this stuff.

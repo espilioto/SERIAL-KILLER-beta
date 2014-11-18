@@ -49,7 +49,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 204);
+            this.label1.Location = new System.Drawing.Point(9, 204);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(98, 13);
             this.label1.TabIndex = 0;
@@ -58,7 +58,7 @@
             // breathGB
             // 
             this.breathGB.AutoSize = true;
-            this.breathGB.Location = new System.Drawing.Point(187, 243);
+            this.breathGB.Location = new System.Drawing.Point(186, 243);
             this.breathGB.Name = "breathGB";
             this.breathGB.Size = new System.Drawing.Size(52, 17);
             this.breathGB.TabIndex = 26;
@@ -69,7 +69,7 @@
             // breathRB
             // 
             this.breathRB.AutoSize = true;
-            this.breathRB.Location = new System.Drawing.Point(96, 243);
+            this.breathRB.Location = new System.Drawing.Point(95, 243);
             this.breathRB.Name = "breathRB";
             this.breathRB.Size = new System.Drawing.Size(52, 17);
             this.breathRB.TabIndex = 25;
@@ -80,7 +80,7 @@
             // breathRG
             // 
             this.breathRG.AutoSize = true;
-            this.breathRG.Location = new System.Drawing.Point(12, 243);
+            this.breathRG.Location = new System.Drawing.Point(11, 243);
             this.breathRG.Name = "breathRG";
             this.breathRG.Size = new System.Drawing.Size(53, 17);
             this.breathRG.TabIndex = 24;
@@ -91,7 +91,7 @@
             // breathWhite
             // 
             this.breathWhite.AutoSize = true;
-            this.breathWhite.Location = new System.Drawing.Point(96, 275);
+            this.breathWhite.Location = new System.Drawing.Point(95, 275);
             this.breathWhite.Name = "breathWhite";
             this.breathWhite.Size = new System.Drawing.Size(53, 17);
             this.breathWhite.TabIndex = 23;
@@ -102,7 +102,7 @@
             // breathBlue
             // 
             this.breathBlue.AutoSize = true;
-            this.breathBlue.Location = new System.Drawing.Point(187, 220);
+            this.breathBlue.Location = new System.Drawing.Point(186, 220);
             this.breathBlue.Name = "breathBlue";
             this.breathBlue.Size = new System.Drawing.Size(46, 17);
             this.breathBlue.TabIndex = 22;
@@ -113,7 +113,7 @@
             // breathGreen
             // 
             this.breathGreen.AutoSize = true;
-            this.breathGreen.Location = new System.Drawing.Point(96, 220);
+            this.breathGreen.Location = new System.Drawing.Point(95, 220);
             this.breathGreen.Name = "breathGreen";
             this.breathGreen.Size = new System.Drawing.Size(54, 17);
             this.breathGreen.TabIndex = 21;
@@ -124,7 +124,7 @@
             // breathRed
             // 
             this.breathRed.AutoSize = true;
-            this.breathRed.Location = new System.Drawing.Point(12, 220);
+            this.breathRed.Location = new System.Drawing.Point(11, 220);
             this.breathRed.Name = "breathRed";
             this.breathRed.Size = new System.Drawing.Size(45, 17);
             this.breathRed.TabIndex = 20;

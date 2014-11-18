@@ -11,9 +11,7 @@ namespace Csharp_SERIAL_KILLER_beta
         public soundControl soundControl = new soundControl();
         public breathingControl breathingControl = new breathingControl();
         public strobeControl strobeControl = new strobeControl();
-
-        MMDeviceEnumerator DevEnum = new MMDeviceEnumerator();
-        MMDevice device;
+        public tempControl tempControl = new tempControl();
 
         public static SerialPort uart = new SerialPort(); //commands:     ping ;  off ;   rgb r,g,b;  out,bit,0/1;    sta,;   man ;/help ;    
         public static bool connected = false;
@@ -24,6 +22,24 @@ namespace Csharp_SERIAL_KILLER_beta
         MenuItem Leds = new MenuItem("Leds");
         MenuItem exit = new MenuItem("Exit");
 
+        //gamma correction equation: 255 * ((color value) / 255) ^ gammaCorrection
+        public static int[] gamma =   { 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+                                        0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  1,  1,  1,  1,
+                                        1,  1,  1,  1,  1,  1,  1,  1,  1,  2,  2,  2,  2,  2,  2,  2,
+                                        2,  3,  3,  3,  3,  3,  3,  3,  4,  4,  4,  4,  4,  5,  5,  5,
+                                        5,  6,  6,  6,  6,  7,  7,  7,  7,  8,  8,  8,  9,  9,  9,  10,
+                                        10, 10, 11, 11, 11, 12, 12, 13, 13, 13, 14, 14, 15, 15, 16, 16,
+                                        17, 17, 18, 18, 19, 19, 20, 20, 21, 21, 22, 22, 23, 24, 24, 25,
+                                        25, 26, 27, 27, 28, 29, 29, 30, 31, 32, 32, 33, 34, 35, 35, 36,
+                                        37, 38, 39, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 50,
+                                        51, 52, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 66, 67, 68,
+                                        69, 70, 72, 73, 74, 75, 77, 78, 79, 81, 82, 83, 85, 86, 87, 89,
+                                        90, 92, 93, 95, 96, 98, 99,101,102,104,105,107,109,110,112,114,
+                                        115,117,119,120,122,124,126,127,129,131,133,135,137,138,140,142,
+                                        144,146,148,150,152,154,156,158,160,162,164,167,169,171,173,175,
+                                        177,180,182,184,186,189,191,193,196,198,200,203,205,208,210,213,
+                                        215,218,220,223,225,228,231,233,236,239,241,244,247,249,252,255 }; //gamma correction: 2.8
+
         public Form1()
         {
             InitializeComponent();
@@ -31,8 +47,6 @@ namespace Csharp_SERIAL_KILLER_beta
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            device = DevEnum.GetDefaultAudioEndpoint(EDataFlow.eRender, ERole.eMultimedia);
-
             enableforms(false);
             baudBox.Text = "19200";
             foreach (string portname in SerialPort.GetPortNames())
@@ -97,7 +111,7 @@ namespace Csharp_SERIAL_KILLER_beta
             btnNormal.Enabled = b;
             btnNormalPrefs.Enabled = b;
             btnRainbow.Enabled = b;
-            btnRainbowPrefs.Enabled = b;
+            //btnRainbowPrefs.Enabled = b;
             btnBreathing.Enabled = b;
             btnBreathingPrefs.Enabled = b;
             btnSound.Enabled = b;
@@ -234,22 +248,22 @@ namespace Csharp_SERIAL_KILLER_beta
         {
             normalControl.normalMode = true;
             btnNormalPrefs.Enabled = true;
-        }                 //normal on
+        }                 //normal on       MENU STRIP
         private void offToolStripMenuItem_Click(object sender, EventArgs e)
         {
             normalControl.normalMode = false;
-        }                //normal off
+        }                //normal off       MENU STRIP
         private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             normalControl.ShowDialog();
-        }        //normal prefs
+        }        //normal prefs       MENU STRIP
         private void onToolStripMenuItem3_Click(object sender, EventArgs e)
         {
             enableforms(false);
             offToolStripMenuItem3.Enabled = true;
             btnRainbow.Enabled = true;
             btnRainbow.Checked = true;
-            btnRainbowPrefs.Enabled = true;
+            //btnRainbowPrefs.Enabled = true;
 
             int r = 255, g = 0, b = 0;
 
@@ -257,65 +271,65 @@ namespace Csharp_SERIAL_KILLER_beta
 
             while (!onToolStripMenuItem3.Enabled)
             {
-                for (g = 0; g <= 254 && !onToolStripMenuItem3.Enabled; g++)                       //g to max
+                for (g = 0; g < 255 && !onToolStripMenuItem3.Enabled; g++)                       //g to max
                 {
-                    uart.Write("rgb " + r + "," + g + "," + b + ";");
+                    uart.Write("rgb " + r + "," + gamma[g] + "," + b + ";");
                     Application.DoEvents();
                 }
                 for (r = 255; r >= 1 && !onToolStripMenuItem3.Enabled; r--)                       //r to 0
                 {
-                    uart.Write("rgb " + r + "," + g + "," + b + ";");
+                    uart.Write("rgb " + gamma[r] + "," + g + "," + b + ";");
                     Application.DoEvents();
                 }
-                for (b = 0; b <= 254 && !onToolStripMenuItem3.Enabled; b++)                       //b to max
+                for (b = 0; b < 255 && !onToolStripMenuItem3.Enabled; b++)                       //b to max
                 {
-                    uart.Write("rgb " + r + "," + g + "," + b + ";");
+                    uart.Write("rgb " + r + "," + g + "," + gamma[b] + ";");
                     Application.DoEvents();
                 }
                 for (g = 255; g >= 1 && !onToolStripMenuItem3.Enabled; g--)                       //g to 0
                 {
-                    uart.Write("rgb " + r + "," + g + "," + b + ";");
+                    uart.Write("rgb " + r + "," + gamma[g] + "," + b + ";");
                     Application.DoEvents();
                 }
-                for (r = 0; r <= 254 && !onToolStripMenuItem3.Enabled; r++)                       //r to max
+                for (r = 0; r < 255 && !onToolStripMenuItem3.Enabled; r++)                       //r to max
                 {
-                    uart.Write("rgb " + r + "," + g + "," + b + ";");
+                    uart.Write("rgb " + gamma[r] + "," + g + "," + b + ";");
                     Application.DoEvents();
                 }
                 for (b = 255; b >= 1 && !onToolStripMenuItem3.Enabled; b--)                       //b to 0
                 {
-                    uart.Write("rgb " + r + "," + g + "," + b + ";");
+                    uart.Write("rgb " + r + "," + g + "," + gamma[b] + ";");
                     Application.DoEvents();
                 }
             }
-        }                //rainbow on
+        }                //rainbow on       MENU STRIP
         private void offToolStripMenuItem3_Click(object sender, EventArgs e)
         {
             resetrgbled();
             enableforms(true);
             btnRainbow.Checked = false;
-        }               //rainbow off
+        }               //rainbow off       MENU STRIP
         private void onToolStripMenuItem4_Click(object sender, EventArgs e)
         {
             breathingControl.breathingModeStart(this, null);
-        
+
             enableforms(false);
             offToolStripMenuItem4.Enabled = true;
             preferencesToolStripMenuItem3.Enabled = true;
             btnBreathing.Enabled = true;
             btnBreathing.Checked = true;
             btnBreathingPrefs.Enabled = true;
-        }                //breath on
+        }                //breath on       MENU STRIP
         private void offToolStripMenuItem4_Click(object sender, EventArgs e)
         {
             breathingControl.breathingModeStop(this, null);
             enableforms(true);
             btnBreathing.Checked = false;
-        }               //breath off
+        }               //breath off       MENU STRIP
         private void preferencesToolStripMenuItem3_Click(object sender, EventArgs e)
         {
             breathingControl.ShowDialog();
-        }       //breath prefs
+        }       //breath prefs       MENU STRIP
         private void onToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             soundControl.soundMode = true;
@@ -328,7 +342,7 @@ namespace Csharp_SERIAL_KILLER_beta
             btnSound.Enabled = true;
             btnSound.Checked = true;
             btnSoundPrefs.Enabled = true;
-        }                //sound on
+        }                //sound on       MENU STRIP
         private void offToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             soundControl.soundMode = false;
@@ -336,11 +350,11 @@ namespace Csharp_SERIAL_KILLER_beta
 
             enableforms(true);
             btnSound.Checked = false;
-        }               //sound off
+        }               //sound off       MENU STRIP
         private void preferencesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             soundControl.ShowDialog();
-        }       //sound prefs
+        }       //sound prefs       MENU STRIP
         private void onToolStripMenuItem5_Click(object sender, EventArgs e)
         {
             strobeControl.strobeMode = true;
@@ -353,19 +367,20 @@ namespace Csharp_SERIAL_KILLER_beta
             btnStrobe.Enabled = true;
             btnStrobe.Checked = true;
             btnStrobePrefs.Enabled = true;
-        }               //strobe mode
+        }                //strobe on       MENU STRIP
         private void offToolStripMenuItem5_Click(object sender, EventArgs e)
         {
             strobeControl.strobeMode = false;
             strobeControl.strobeModeStop(this, null);
-            
+
             enableforms(true);
             btnStrobe.Checked = false;
-        }              //strobe mode
+        }               //strobe off       MENU STRIP
         private void preferencesToolStripMenuItem4_Click(object sender, EventArgs e)
         {
             strobeControl.ShowDialog();
-        }       //strobe prefs
+        }       //strobe prefs       MENU STRIP
+
 
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -383,7 +398,7 @@ namespace Csharp_SERIAL_KILLER_beta
                 enableforms(false);
                 offToolStripMenuItem4.Enabled = true;
             }
-            else if (soundControl.soundMode) 
+            else if (soundControl.soundMode)
             {
                 enableforms(false);
                 offToolStripMenuItem1.Enabled = true;
@@ -391,6 +406,85 @@ namespace Csharp_SERIAL_KILLER_beta
             }
         }
 
+        private void btnNormal_CheckedChanged(object sender, EventArgs e)                       //normal BUTTON
+        {
+            if (btnNormal.Checked)
+            {
+                onToolStripMenuItem_Click(this, null);
+            }
+            else
+            {
+                offToolStripMenuItem_Click(this, null);
+            }
+        }
+        private void btnNormalPrefs_Click(object sender, EventArgs e)                           //normal prefs BUTTON
+        {
+            normalControl.ShowDialog();
+        }
+        private void btnRainbow_CheckedChanged(object sender, EventArgs e)
+        {
+            if (btnRainbow.Checked)
+            {
+                onToolStripMenuItem3_Click(this, null);
+            }
+            else
+            {
+                offToolStripMenuItem3_Click(this, null);
+            }
+        }                   //rainbow BUTTON
+        private void btnBreathing_CheckedChanged(object sender, EventArgs e)
+        {
+            if (btnBreathing.Checked)
+            {
+                onToolStripMenuItem4_Click(this, null);
+            }
+            else
+            {
+                offToolStripMenuItem4_Click(this, null);
+            }
+        }                   //breathing BUTTON
+        private void btnBreathingPrefs_Click(object sender, EventArgs e)
+        {
+            breathingControl.ShowDialog();
+        }                   //breathing prefs BUTTON
+        private void btnSound_CheckedChanged(object sender, EventArgs e)
+        {
+            if (btnSound.Checked)
+            {
+                onToolStripMenuItem1_Click(this, null);
+            }
+            else
+            {
+                offToolStripMenuItem1_Click(this, null);
+            }
+        }                   //sound BUTTON
+        private void btnSoundPrefs_Click(object sender, EventArgs e)
+        {
+            soundControl.ShowDialog();
+        }                   //sound prefs  BUTTON
+        private void btnTemp_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }                     //temp  BUTTON
+        private void btnTempPrefs_Click(object sender, EventArgs e)
+        {
+            tempControl.ShowDialog();
+        }                           //temp prefs  BUTTON
+        private void btnStrobe_CheckedChanged(object sender, EventArgs e)
+        {
+            if (btnStrobe.Checked)
+            {
+                onToolStripMenuItem5_Click(this, null);
+            }
+            else
+            {
+                offToolStripMenuItem5_Click(this, null);
+            }
+        }                    //strobe  BUTTON
+        private void btnStrobePrefs_Click(object sender, EventArgs e)
+        {
+            strobeControl.ShowDialog();
+        }                       //strobe prefs  BUTTON
 
     }
 }

@@ -88,7 +88,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 204);
+            this.label3.Location = new System.Drawing.Point(9, 204);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(101, 13);
             this.label3.TabIndex = 5;
@@ -156,7 +156,7 @@
             // radioRed
             // 
             this.radioRed.AutoSize = true;
-            this.radioRed.Location = new System.Drawing.Point(12, 220);
+            this.radioRed.Location = new System.Drawing.Point(11, 220);
             this.radioRed.Name = "radioRed";
             this.radioRed.Size = new System.Drawing.Size(45, 17);
             this.radioRed.TabIndex = 12;
@@ -167,7 +167,7 @@
             // radioGreen
             // 
             this.radioGreen.AutoSize = true;
-            this.radioGreen.Location = new System.Drawing.Point(96, 220);
+            this.radioGreen.Location = new System.Drawing.Point(95, 220);
             this.radioGreen.Name = "radioGreen";
             this.radioGreen.Size = new System.Drawing.Size(54, 17);
             this.radioGreen.TabIndex = 13;
@@ -178,7 +178,7 @@
             // radioBlue
             // 
             this.radioBlue.AutoSize = true;
-            this.radioBlue.Location = new System.Drawing.Point(187, 220);
+            this.radioBlue.Location = new System.Drawing.Point(186, 220);
             this.radioBlue.Name = "radioBlue";
             this.radioBlue.Size = new System.Drawing.Size(46, 17);
             this.radioBlue.TabIndex = 14;
@@ -189,7 +189,7 @@
             // radioWhite
             // 
             this.radioWhite.AutoSize = true;
-            this.radioWhite.Location = new System.Drawing.Point(96, 275);
+            this.radioWhite.Location = new System.Drawing.Point(95, 275);
             this.radioWhite.Name = "radioWhite";
             this.radioWhite.Size = new System.Drawing.Size(53, 17);
             this.radioWhite.TabIndex = 15;
@@ -200,7 +200,7 @@
             // radioRG
             // 
             this.radioRG.AutoSize = true;
-            this.radioRG.Location = new System.Drawing.Point(12, 243);
+            this.radioRG.Location = new System.Drawing.Point(11, 243);
             this.radioRG.Name = "radioRG";
             this.radioRG.Size = new System.Drawing.Size(53, 17);
             this.radioRG.TabIndex = 16;
@@ -211,7 +211,7 @@
             // radioRB
             // 
             this.radioRB.AutoSize = true;
-            this.radioRB.Location = new System.Drawing.Point(96, 243);
+            this.radioRB.Location = new System.Drawing.Point(95, 243);
             this.radioRB.Name = "radioRB";
             this.radioRB.Size = new System.Drawing.Size(52, 17);
             this.radioRB.TabIndex = 17;
@@ -222,7 +222,7 @@
             // radioGB
             // 
             this.radioGB.AutoSize = true;
-            this.radioGB.Location = new System.Drawing.Point(187, 243);
+            this.radioGB.Location = new System.Drawing.Point(186, 243);
             this.radioGB.Name = "radioGB";
             this.radioGB.Size = new System.Drawing.Size(52, 17);
             this.radioGB.TabIndex = 18;

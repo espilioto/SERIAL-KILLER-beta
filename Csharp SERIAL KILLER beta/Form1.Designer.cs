@@ -76,11 +76,11 @@
             this.btnSound = new System.Windows.Forms.CheckBox();
             this.btnStrobe = new System.Windows.Forms.CheckBox();
             this.btnTemp = new System.Windows.Forms.CheckBox();
-            this.btnRainbowPrefs = new System.Windows.Forms.Button();
-            this.btnBreathingPrefs = new System.Windows.Forms.Button();
-            this.btnSoundPrefs = new System.Windows.Forms.Button();
-            this.btnStrobePrefs = new System.Windows.Forms.Button();
             this.btnTempPrefs = new System.Windows.Forms.Button();
+            this.btnStrobePrefs = new System.Windows.Forms.Button();
+            this.btnSoundPrefs = new System.Windows.Forms.Button();
+            this.btnBreathingPrefs = new System.Windows.Forms.Button();
+            this.btnRainbowPrefs = new System.Windows.Forms.Button();
             this.btnNormalPrefs = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.baudBox)).BeginInit();
@@ -194,9 +194,9 @@
             this.normalToolStripMenuItem,
             this.rainbowToolStripMenuItem,
             this.breathingToolStripMenuItem,
-            this.soundToolStripMenuItem,
+            this.flashToolStripMenuItem,
             this.temperatureToolStripMenuItem,
-            this.flashToolStripMenuItem});
+            this.soundToolStripMenuItem});
             this.modeToolStripMenuItem.Name = "modeToolStripMenuItem";
             this.modeToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.modeToolStripMenuItem.Text = "&Mode";
@@ -208,7 +208,7 @@
             this.offToolStripMenuItem,
             this.preferencesToolStripMenuItem});
             this.normalToolStripMenuItem.Name = "normalToolStripMenuItem";
-            this.normalToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.normalToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.normalToolStripMenuItem.Text = "&Normal";
             // 
             // onToolStripMenuItem
@@ -238,7 +238,7 @@
             this.onToolStripMenuItem3,
             this.offToolStripMenuItem3});
             this.rainbowToolStripMenuItem.Name = "rainbowToolStripMenuItem";
-            this.rainbowToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.rainbowToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.rainbowToolStripMenuItem.Text = "&Rainbow";
             // 
             // onToolStripMenuItem3
@@ -262,7 +262,7 @@
             this.offToolStripMenuItem4,
             this.preferencesToolStripMenuItem3});
             this.breathingToolStripMenuItem.Name = "breathingToolStripMenuItem";
-            this.breathingToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.breathingToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.breathingToolStripMenuItem.Text = "&Breathing";
             // 
             // onToolStripMenuItem4
@@ -293,27 +293,27 @@
             this.offToolStripMenuItem1,
             this.preferencesToolStripMenuItem1});
             this.soundToolStripMenuItem.Name = "soundToolStripMenuItem";
-            this.soundToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.soundToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.soundToolStripMenuItem.Text = "&Sound";
             // 
             // onToolStripMenuItem1
             // 
             this.onToolStripMenuItem1.Name = "onToolStripMenuItem1";
-            this.onToolStripMenuItem1.Size = new System.Drawing.Size(135, 22);
+            this.onToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.onToolStripMenuItem1.Text = "&On";
             this.onToolStripMenuItem1.Click += new System.EventHandler(this.onToolStripMenuItem1_Click);
             // 
             // offToolStripMenuItem1
             // 
             this.offToolStripMenuItem1.Name = "offToolStripMenuItem1";
-            this.offToolStripMenuItem1.Size = new System.Drawing.Size(135, 22);
+            this.offToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.offToolStripMenuItem1.Text = "&Off";
             this.offToolStripMenuItem1.Click += new System.EventHandler(this.offToolStripMenuItem1_Click);
             // 
             // preferencesToolStripMenuItem1
             // 
             this.preferencesToolStripMenuItem1.Name = "preferencesToolStripMenuItem1";
-            this.preferencesToolStripMenuItem1.Size = new System.Drawing.Size(135, 22);
+            this.preferencesToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.preferencesToolStripMenuItem1.Text = "&Preferences";
             this.preferencesToolStripMenuItem1.Click += new System.EventHandler(this.preferencesToolStripMenuItem1_Click);
             // 
@@ -324,25 +324,25 @@
             this.offToolStripMenuItem2,
             this.preferencesToolStripMenuItem2});
             this.temperatureToolStripMenuItem.Name = "temperatureToolStripMenuItem";
-            this.temperatureToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.temperatureToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.temperatureToolStripMenuItem.Text = "&Temperature";
             // 
             // onToolStripMenuItem2
             // 
             this.onToolStripMenuItem2.Name = "onToolStripMenuItem2";
-            this.onToolStripMenuItem2.Size = new System.Drawing.Size(135, 22);
+            this.onToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
             this.onToolStripMenuItem2.Text = "&On";
             // 
             // offToolStripMenuItem2
             // 
             this.offToolStripMenuItem2.Name = "offToolStripMenuItem2";
-            this.offToolStripMenuItem2.Size = new System.Drawing.Size(135, 22);
+            this.offToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
             this.offToolStripMenuItem2.Text = "&Off";
             // 
             // preferencesToolStripMenuItem2
             // 
             this.preferencesToolStripMenuItem2.Name = "preferencesToolStripMenuItem2";
-            this.preferencesToolStripMenuItem2.Size = new System.Drawing.Size(135, 22);
+            this.preferencesToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
             this.preferencesToolStripMenuItem2.Text = "&Preferences";
             // 
             // flashToolStripMenuItem
@@ -352,27 +352,27 @@
             this.offToolStripMenuItem5,
             this.preferencesToolStripMenuItem4});
             this.flashToolStripMenuItem.Name = "flashToolStripMenuItem";
-            this.flashToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.flashToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.flashToolStripMenuItem.Text = "Str&obe";
             // 
             // onToolStripMenuItem5
             // 
             this.onToolStripMenuItem5.Name = "onToolStripMenuItem5";
-            this.onToolStripMenuItem5.Size = new System.Drawing.Size(135, 22);
+            this.onToolStripMenuItem5.Size = new System.Drawing.Size(152, 22);
             this.onToolStripMenuItem5.Text = "&On";
             this.onToolStripMenuItem5.Click += new System.EventHandler(this.onToolStripMenuItem5_Click);
             // 
             // offToolStripMenuItem5
             // 
             this.offToolStripMenuItem5.Name = "offToolStripMenuItem5";
-            this.offToolStripMenuItem5.Size = new System.Drawing.Size(135, 22);
+            this.offToolStripMenuItem5.Size = new System.Drawing.Size(152, 22);
             this.offToolStripMenuItem5.Text = "&Off";
             this.offToolStripMenuItem5.Click += new System.EventHandler(this.offToolStripMenuItem5_Click);
             // 
             // preferencesToolStripMenuItem4
             // 
             this.preferencesToolStripMenuItem4.Name = "preferencesToolStripMenuItem4";
-            this.preferencesToolStripMenuItem4.Size = new System.Drawing.Size(135, 22);
+            this.preferencesToolStripMenuItem4.Size = new System.Drawing.Size(152, 22);
             this.preferencesToolStripMenuItem4.Text = "&Preferences";
             this.preferencesToolStripMenuItem4.Click += new System.EventHandler(this.preferencesToolStripMenuItem4_Click);
             // 
@@ -427,6 +427,7 @@
             this.btnNormal.Text = "Normal ";
             this.btnNormal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnNormal.UseVisualStyleBackColor = true;
+            this.btnNormal.CheckedChanged += new System.EventHandler(this.btnNormal_CheckedChanged);
             // 
             // btnRainbow
             // 
@@ -438,6 +439,7 @@
             this.btnRainbow.Text = "Rainbow ";
             this.btnRainbow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnRainbow.UseVisualStyleBackColor = true;
+            this.btnRainbow.CheckedChanged += new System.EventHandler(this.btnRainbow_CheckedChanged);
             // 
             // btnBreathing
             // 
@@ -449,28 +451,31 @@
             this.btnBreathing.Text = "Breathing";
             this.btnBreathing.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnBreathing.UseVisualStyleBackColor = true;
+            this.btnBreathing.CheckedChanged += new System.EventHandler(this.btnBreathing_CheckedChanged);
             // 
             // btnSound
             // 
             this.btnSound.Appearance = System.Windows.Forms.Appearance.Button;
-            this.btnSound.Location = new System.Drawing.Point(197, 133);
+            this.btnSound.Location = new System.Drawing.Point(197, 185);
             this.btnSound.Name = "btnSound";
             this.btnSound.Size = new System.Drawing.Size(89, 46);
             this.btnSound.TabIndex = 91;
             this.btnSound.Text = "Sound";
             this.btnSound.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnSound.UseVisualStyleBackColor = true;
+            this.btnSound.CheckedChanged += new System.EventHandler(this.btnSound_CheckedChanged);
             // 
             // btnStrobe
             // 
             this.btnStrobe.Appearance = System.Windows.Forms.Appearance.Button;
-            this.btnStrobe.Location = new System.Drawing.Point(197, 185);
+            this.btnStrobe.Location = new System.Drawing.Point(197, 133);
             this.btnStrobe.Name = "btnStrobe";
             this.btnStrobe.Size = new System.Drawing.Size(89, 46);
             this.btnStrobe.TabIndex = 92;
             this.btnStrobe.Text = "Strobe";
             this.btnStrobe.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnStrobe.UseVisualStyleBackColor = true;
+            this.btnStrobe.CheckedChanged += new System.EventHandler(this.btnStrobe_CheckedChanged);
             // 
             // btnTemp
             // 
@@ -482,42 +487,7 @@
             this.btnTemp.Text = "Temperature";
             this.btnTemp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnTemp.UseVisualStyleBackColor = true;
-            // 
-            // btnRainbowPrefs
-            // 
-            this.btnRainbowPrefs.Image = global::Csharp_SERIAL_KILLER_beta.Properties.Resources.gear;
-            this.btnRainbowPrefs.Location = new System.Drawing.Point(285, 81);
-            this.btnRainbowPrefs.Name = "btnRainbowPrefs";
-            this.btnRainbowPrefs.Size = new System.Drawing.Size(28, 46);
-            this.btnRainbowPrefs.TabIndex = 95;
-            this.btnRainbowPrefs.UseVisualStyleBackColor = true;
-            // 
-            // btnBreathingPrefs
-            // 
-            this.btnBreathingPrefs.Image = global::Csharp_SERIAL_KILLER_beta.Properties.Resources.gear;
-            this.btnBreathingPrefs.Location = new System.Drawing.Point(75, 133);
-            this.btnBreathingPrefs.Name = "btnBreathingPrefs";
-            this.btnBreathingPrefs.Size = new System.Drawing.Size(28, 46);
-            this.btnBreathingPrefs.TabIndex = 96;
-            this.btnBreathingPrefs.UseVisualStyleBackColor = true;
-            // 
-            // btnSoundPrefs
-            // 
-            this.btnSoundPrefs.Image = global::Csharp_SERIAL_KILLER_beta.Properties.Resources.gear;
-            this.btnSoundPrefs.Location = new System.Drawing.Point(285, 133);
-            this.btnSoundPrefs.Name = "btnSoundPrefs";
-            this.btnSoundPrefs.Size = new System.Drawing.Size(28, 46);
-            this.btnSoundPrefs.TabIndex = 97;
-            this.btnSoundPrefs.UseVisualStyleBackColor = true;
-            // 
-            // btnStrobePrefs
-            // 
-            this.btnStrobePrefs.Image = global::Csharp_SERIAL_KILLER_beta.Properties.Resources.gear;
-            this.btnStrobePrefs.Location = new System.Drawing.Point(285, 185);
-            this.btnStrobePrefs.Name = "btnStrobePrefs";
-            this.btnStrobePrefs.Size = new System.Drawing.Size(28, 46);
-            this.btnStrobePrefs.TabIndex = 98;
-            this.btnStrobePrefs.UseVisualStyleBackColor = true;
+            this.btnTemp.CheckedChanged += new System.EventHandler(this.btnTemp_CheckedChanged);
             // 
             // btnTempPrefs
             // 
@@ -527,6 +497,47 @@
             this.btnTempPrefs.Size = new System.Drawing.Size(28, 46);
             this.btnTempPrefs.TabIndex = 99;
             this.btnTempPrefs.UseVisualStyleBackColor = true;
+            this.btnTempPrefs.Click += new System.EventHandler(this.btnTempPrefs_Click);
+            // 
+            // btnStrobePrefs
+            // 
+            this.btnStrobePrefs.Image = global::Csharp_SERIAL_KILLER_beta.Properties.Resources.gear;
+            this.btnStrobePrefs.Location = new System.Drawing.Point(285, 133);
+            this.btnStrobePrefs.Name = "btnStrobePrefs";
+            this.btnStrobePrefs.Size = new System.Drawing.Size(28, 46);
+            this.btnStrobePrefs.TabIndex = 98;
+            this.btnStrobePrefs.UseVisualStyleBackColor = true;
+            this.btnStrobePrefs.Click += new System.EventHandler(this.btnStrobePrefs_Click);
+            // 
+            // btnSoundPrefs
+            // 
+            this.btnSoundPrefs.Image = global::Csharp_SERIAL_KILLER_beta.Properties.Resources.gear;
+            this.btnSoundPrefs.Location = new System.Drawing.Point(285, 185);
+            this.btnSoundPrefs.Name = "btnSoundPrefs";
+            this.btnSoundPrefs.Size = new System.Drawing.Size(28, 46);
+            this.btnSoundPrefs.TabIndex = 97;
+            this.btnSoundPrefs.UseVisualStyleBackColor = true;
+            this.btnSoundPrefs.Click += new System.EventHandler(this.btnSoundPrefs_Click);
+            // 
+            // btnBreathingPrefs
+            // 
+            this.btnBreathingPrefs.Image = global::Csharp_SERIAL_KILLER_beta.Properties.Resources.gear;
+            this.btnBreathingPrefs.Location = new System.Drawing.Point(75, 133);
+            this.btnBreathingPrefs.Name = "btnBreathingPrefs";
+            this.btnBreathingPrefs.Size = new System.Drawing.Size(28, 46);
+            this.btnBreathingPrefs.TabIndex = 96;
+            this.btnBreathingPrefs.UseVisualStyleBackColor = true;
+            this.btnBreathingPrefs.Click += new System.EventHandler(this.btnBreathingPrefs_Click);
+            // 
+            // btnRainbowPrefs
+            // 
+            this.btnRainbowPrefs.Enabled = false;
+            this.btnRainbowPrefs.Image = global::Csharp_SERIAL_KILLER_beta.Properties.Resources.gear;
+            this.btnRainbowPrefs.Location = new System.Drawing.Point(285, 81);
+            this.btnRainbowPrefs.Name = "btnRainbowPrefs";
+            this.btnRainbowPrefs.Size = new System.Drawing.Size(28, 46);
+            this.btnRainbowPrefs.TabIndex = 95;
+            this.btnRainbowPrefs.UseVisualStyleBackColor = true;
             // 
             // btnNormalPrefs
             // 
@@ -537,6 +548,7 @@
             this.btnNormalPrefs.Size = new System.Drawing.Size(28, 46);
             this.btnNormalPrefs.TabIndex = 94;
             this.btnNormalPrefs.UseVisualStyleBackColor = true;
+            this.btnNormalPrefs.Click += new System.EventHandler(this.btnNormalPrefs_Click);
             // 
             // Form1
             // 

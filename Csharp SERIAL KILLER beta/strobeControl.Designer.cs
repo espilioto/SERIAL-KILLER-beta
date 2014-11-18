@@ -64,9 +64,9 @@
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(56, 92);
+            this.label2.Location = new System.Drawing.Point(116, 96);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(134, 13);
+            this.label2.Size = new System.Drawing.Size(60, 13);
             this.label2.TabIndex = 44;
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -88,13 +88,13 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(10, 18);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(126, 13);
+            this.label4.Size = new System.Drawing.Size(119, 13);
             this.label4.TabIndex = 42;
-            this.label4.Text = "Select the flashing speed";
+            this.label4.Text = "Select the strobe speed";
             // 
             // btnStop
             // 
-            this.btnStop.Location = new System.Drawing.Point(123, 360);
+            this.btnStop.Location = new System.Drawing.Point(125, 331);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(75, 23);
             this.btnStop.TabIndex = 46;
@@ -104,7 +104,7 @@
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(45, 360);
+            this.btnStart.Location = new System.Drawing.Point(47, 331);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(75, 23);
             this.btnStart.TabIndex = 45;
@@ -115,7 +115,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 124);
+            this.label1.Location = new System.Drawing.Point(12, 96);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(98, 13);
             this.label1.TabIndex = 51;
@@ -125,7 +125,7 @@
             // 
             this.blueupdown.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.blueupdown.ForeColor = System.Drawing.Color.Blue;
-            this.blueupdown.Location = new System.Drawing.Point(190, 201);
+            this.blueupdown.Location = new System.Drawing.Point(190, 173);
             this.blueupdown.Maximum = new decimal(new int[] {
             255,
             0,
@@ -139,7 +139,7 @@
             // 
             this.greenupdown.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.greenupdown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.greenupdown.Location = new System.Drawing.Point(101, 202);
+            this.greenupdown.Location = new System.Drawing.Point(101, 174);
             this.greenupdown.Maximum = new decimal(new int[] {
             255,
             0,
@@ -153,7 +153,7 @@
             // 
             this.redupdown.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.redupdown.ForeColor = System.Drawing.Color.Red;
-            this.redupdown.Location = new System.Drawing.Point(13, 200);
+            this.redupdown.Location = new System.Drawing.Point(13, 172);
             this.redupdown.Maximum = new decimal(new int[] {
             255,
             0,
@@ -168,7 +168,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.label3.ForeColor = System.Drawing.Color.Blue;
-            this.label3.Location = new System.Drawing.Point(205, 184);
+            this.label3.Location = new System.Drawing.Point(205, 156);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(15, 13);
             this.label3.TabIndex = 90;
@@ -179,7 +179,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label5.Location = new System.Drawing.Point(114, 186);
+            this.label5.Location = new System.Drawing.Point(114, 158);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(16, 13);
             this.label5.TabIndex = 89;
@@ -190,7 +190,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(26, 184);
+            this.label6.Location = new System.Drawing.Point(26, 156);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(15, 13);
             this.label6.TabIndex = 88;
@@ -199,7 +199,7 @@
             // bluebar
             // 
             this.bluebar.BackColor = System.Drawing.Color.DodgerBlue;
-            this.bluebar.Location = new System.Drawing.Point(190, 228);
+            this.bluebar.Location = new System.Drawing.Point(190, 200);
             this.bluebar.Maximum = 255;
             this.bluebar.Name = "bluebar";
             this.bluebar.Orientation = System.Windows.Forms.Orientation.Vertical;
@@ -211,7 +211,7 @@
             // greenbar
             // 
             this.greenbar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.greenbar.Location = new System.Drawing.Point(101, 229);
+            this.greenbar.Location = new System.Drawing.Point(101, 201);
             this.greenbar.Maximum = 255;
             this.greenbar.Name = "greenbar";
             this.greenbar.Orientation = System.Windows.Forms.Orientation.Vertical;
@@ -223,7 +223,7 @@
             // redbar
             // 
             this.redbar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.redbar.Location = new System.Drawing.Point(12, 227);
+            this.redbar.Location = new System.Drawing.Point(12, 199);
             this.redbar.Maximum = 255;
             this.redbar.Name = "redbar";
             this.redbar.Orientation = System.Windows.Forms.Orientation.Vertical;
@@ -234,7 +234,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(86, 150);
+            this.button1.Location = new System.Drawing.Point(86, 122);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 94;
@@ -246,7 +246,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(247, 396);
+            this.ClientSize = new System.Drawing.Size(247, 366);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.blueupdown);
             this.Controls.Add(this.greenupdown);

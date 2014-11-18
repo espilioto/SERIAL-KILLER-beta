@@ -28,12 +28,12 @@ namespace Csharp_SERIAL_KILLER_beta
             if (Form1.connected && breathingMode)
             {
 
-                if (pwm < 15)        //this looks better than turning the led off
+                if (pwm < 10)        //this looks better than turning the led completely off
                     rising = true;
-                else if (pwm > 179)
+                else if (pwm > 199)
                     rising = false;
 
-                if (pwm < 180 && rising)
+                if (pwm < 200 && rising)
                     if (trackBar1.Value == 1)
                     {
                         pwm++;

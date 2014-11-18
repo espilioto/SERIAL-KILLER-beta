@@ -35,8 +35,13 @@
     <Reference Include="CoreAudioApi">
       <HintPath>..\CoreAudioApi.dll</HintPath>
     </Reference>
+    <Reference Include="OpenHardwareMonitorLib, Version=0.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\OpenHardwareMonitorLib.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -84,6 +89,12 @@
     <Compile Include="soundControl.Designer.cs">
       <DependentUpon>soundControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="tempControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tempControl.Designer.cs">
+      <DependentUpon>tempControl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="strobeControl.resx">
       <DependentUpon>strobeControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -103,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="soundControl.resx">
       <DependentUpon>soundControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tempControl.resx">
+      <DependentUpon>tempControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

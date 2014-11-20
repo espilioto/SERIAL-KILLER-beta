@@ -40,12 +40,12 @@
             this.txtUpper = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtValue = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.lowerColorBox = new System.Windows.Forms.PictureBox();
             this.upperColorBox = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.txtValue = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtLower)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUpper)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lowerColorBox)).BeginInit();
@@ -106,16 +106,49 @@
             // txtLower
             // 
             this.txtLower.Location = new System.Drawing.Point(15, 137);
+            this.txtLower.Maximum = new decimal(new int[] {
+            110,
+            0,
+            0,
+            0});
+            this.txtLower.Minimum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            -2147483648});
             this.txtLower.Name = "txtLower";
+            this.txtLower.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtLower.Size = new System.Drawing.Size(47, 20);
             this.txtLower.TabIndex = 49;
+            this.txtLower.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtLower.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+            this.txtLower.Value = new decimal(new int[] {
+            37,
+            0,
+            0,
+            0});
             // 
             // txtUpper
             // 
             this.txtUpper.Location = new System.Drawing.Point(183, 137);
+            this.txtUpper.Maximum = new decimal(new int[] {
+            110,
+            0,
+            0,
+            0});
+            this.txtUpper.Minimum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            -2147483648});
             this.txtUpper.Name = "txtUpper";
             this.txtUpper.Size = new System.Drawing.Size(47, 20);
             this.txtUpper.TabIndex = 50;
+            this.txtUpper.Value = new decimal(new int[] {
+            78,
+            0,
+            0,
+            0});
             // 
             // label3
             // 
@@ -134,15 +167,6 @@
             this.label5.TabIndex = 52;
             this.label5.Text = "upper threshold";
             this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // txtValue
-            // 
-            this.txtValue.Location = new System.Drawing.Point(100, 137);
-            this.txtValue.Name = "txtValue";
-            this.txtValue.ReadOnly = true;
-            this.txtValue.Size = new System.Drawing.Size(47, 20);
-            this.txtValue.TabIndex = 53;
-            this.txtValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label6
             // 
@@ -191,6 +215,15 @@
             this.label7.Text = "upper color";
             this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // txtValue
+            // 
+            this.txtValue.Location = new System.Drawing.Point(100, 137);
+            this.txtValue.Name = "txtValue";
+            this.txtValue.ReadOnly = true;
+            this.txtValue.Size = new System.Drawing.Size(47, 20);
+            this.txtValue.TabIndex = 53;
+            this.txtValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // tempControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -236,11 +269,11 @@
         private System.Windows.Forms.NumericUpDown txtUpper;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtValue;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox lowerColorBox;
         private System.Windows.Forms.PictureBox upperColorBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtValue;
     }
 }

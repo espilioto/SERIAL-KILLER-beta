@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="stuff.cs" />
     <Compile Include="strobeControl.cs">
       <SubType>Form</SubType>
     </Compile>

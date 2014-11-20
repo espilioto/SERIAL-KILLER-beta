@@ -17,7 +17,7 @@ namespace Csharp_SERIAL_KILLER_beta
         MMDevice device;
         MMDeviceCollection devs;
         int soundLevel;
-
+        
         private void SoundControl_Load(object sender, EventArgs e)
         {
             devs = DevEnum.EnumerateAudioEndPoints(EDataFlow.eAll, EDeviceState.DEVICE_STATE_ACTIVE);

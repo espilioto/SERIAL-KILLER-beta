@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.IO.Ports;
-using CoreAudioApi;
 
 namespace Csharp_SERIAL_KILLER_beta
 {
@@ -14,7 +13,7 @@ namespace Csharp_SERIAL_KILLER_beta
         public tempControl tempControl = new tempControl();
 
         public static bool connected = false;
-        string s;
+        string pong;
 
         ContextMenu cm = new ContextMenu();
         MenuItem open = new MenuItem("Open");
@@ -49,33 +48,33 @@ namespace Csharp_SERIAL_KILLER_beta
 
                 try
                 {
-                    serial.uart.PortName = portBox.Text;
-                    serial.uart.BaudRate = int.Parse(baudBox.Text);
-                    serial.uart.Open();
-                    serial.uart.Write("ping;");
-                    s = serial.uart.ReadTo("!");
-                    if (s == "\n\r>pong")
+                    Serial.uart.PortName = portBox.Text;
+                    Serial.uart.BaudRate = int.Parse(baudBox.Text);
+                    Serial.uart.Open();
+                    Serial.uart.Write("ping;");
+                    pong = Serial.uart.ReadTo("!");
+                    if (pong == "\n\r>pong")
                     {
-                        MessageBox.Show("Connected to the SERIAL KILLER 3000!");
+                        MessageBox.Show("Connected to the Serial KILLER 3000!");
                         enableforms(true);
-                        serial.rgbledOFF();
+                        Serial.RgbledOFF();
                         connected = true;
                     }
                     else
                     {
-                        MessageBox.Show("Is the SERIAL KILLER 3000 connected in port " + serial.uart.PortName + "?");
+                        MessageBox.Show("Is the Serial KILLER 3000 connected in port " + Serial.uart.PortName + "?");
                         openport.Checked = false;
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message + '\n' + "Is the SERIAL KILLER 3000 connected in port " + serial.uart.PortName + "?");
+                    MessageBox.Show(ex.Message + '\n' + "Is the Serial KILLER 3000 connected in port " + Serial.uart.PortName + "?");
                     Application.Exit();
                 }
             }
             else
             {
-                serial.uart.Close();
+                Serial.uart.Close();
                 enableforms(false);
                 portBox.Enabled = true;
                 baudBox.Enabled = true;
@@ -186,19 +185,19 @@ namespace Csharp_SERIAL_KILLER_beta
 
         private void idleToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            serial.rgbledOFF();
+            Serial.RgbledOFF();
         }              //cmd off
         private void resetToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            serial.rgbledRST();
+            Serial.RgbledRST();
         }             //cmd rst
         private void commandListToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("\n\r>Hello and welcome to the SERIAL KILLER 3000 help menu!\n\n\r" +
+            MessageBox.Show("\n\r>Hello and welcome to the Serial KILLER 3000 help menu!\n\n\r" +
             "\n\r>Available commands:" +
             "\n\r>off;\t\tIdle mode, all outputs go LOW, PWM to 0% duty cycle." +
             "\n\r>rst;\t\tSoft reset." +
-            "\n\r>ping;\t\tThe SERIAL KILLER 3000 replies accordingly." +
+            "\n\r>ping;\t\tThe Serial KILLER 3000 replies accordingly." +
             "\n\r>rgb r,g,b;\tRGB mode, acceptable values 0 - 255. \n\r\t\tMax load per chan: 3.5A(cont)/15A(pulsed)." +
             "\n\r>bit x,y;\t\tPort 1 GPIO control. x = pin number(0 - 7) y = pin state(0 - 1)\n\r\t\t[only bits 0 and 6 available on the Launchpad]." +
             "\n\r>sta;\t\tReturns Port 1 and Port 2 GPIO status (GUI only)." +
@@ -243,45 +242,45 @@ namespace Csharp_SERIAL_KILLER_beta
 
             int r = 255, g = 0, b = 0;
 
-            serial.uart.Write("rgb " + 255 + "," + 0 + "," + 0 + ";");                 //r max 
+            Serial.uart.Write("rgb " + 255 + "," + 0 + "," + 0 + ";");                 //r max 
 
             while (!onToolStripMenuItem3.Enabled)
             {
                 for (g = 0; g < 255 && !onToolStripMenuItem3.Enabled; g++)                       //g to max
                 {
-                    serial.uart.Write("rgb " + r + "," + gamma.correction[g] + "," + b + ";");
+                    Serial.uart.Write("rgb " + r + "," + Gamma.correction[g] + "," + b + ";");
                     Application.DoEvents();
                 }
                 for (r = 255; r >= 1 && !onToolStripMenuItem3.Enabled; r--)                       //r to 0
                 {
-                    serial.uart.Write("rgb " + gamma.correction[r] + "," + g + "," + b + ";");
+                    Serial.uart.Write("rgb " + Gamma.correction[r] + "," + g + "," + b + ";");
                     Application.DoEvents();
                 }
                 for (b = 0; b < 255 && !onToolStripMenuItem3.Enabled; b++)                       //b to max
                 {
-                    serial.uart.Write("rgb " + r + "," + g + "," + gamma.correction[b] + ";");
+                    Serial.uart.Write("rgb " + r + "," + g + "," + Gamma.correction[b] + ";");
                     Application.DoEvents();
                 }
                 for (g = 255; g >= 1 && !onToolStripMenuItem3.Enabled; g--)                       //g to 0
                 {
-                    serial.uart.Write("rgb " + r + "," + gamma.correction[g] + "," + b + ";");
+                    Serial.uart.Write("rgb " + r + "," + Gamma.correction[g] + "," + b + ";");
                     Application.DoEvents();
                 }
                 for (r = 0; r < 255 && !onToolStripMenuItem3.Enabled; r++)                       //r to max
                 {
-                    serial.uart.Write("rgb " + gamma.correction[r] + "," + g + "," + b + ";");
+                    Serial.uart.Write("rgb " + Gamma.correction[r] + "," + g + "," + b + ";");
                     Application.DoEvents();
                 }
                 for (b = 255; b >= 1 && !onToolStripMenuItem3.Enabled; b--)                       //b to 0
                 {
-                    serial.uart.Write("rgb " + r + "," + g + "," + gamma.correction[b] + ";");
+                    Serial.uart.Write("rgb " + r + "," + g + "," + Gamma.correction[b] + ";");
                     Application.DoEvents();
                 }
             }
         }                //rainbow on       MENU STRIP
         private void offToolStripMenuItem3_Click(object sender, EventArgs e)
         {
-            serial.rgbledOFF();
+            Serial.RgbledOFF();
             enableforms(true);
             btnRainbow.Checked = false;
         }               //rainbow off       MENU STRIP
@@ -363,22 +362,8 @@ namespace Csharp_SERIAL_KILLER_beta
         {
             if (connected)
             {
-                serial.rgbledOFF();
-                serial.uart.Close();
-            }
-        }
-        private void Form1_Activated(object sender, EventArgs e)
-        {
-            if (breathingControl.breathingMode)
-            {
-                enableforms(false);
-                offToolStripMenuItem4.Enabled = true;
-            }
-            else if (soundControl.soundMode)
-            {
-                enableforms(false);
-                offToolStripMenuItem1.Enabled = true;
-                preferencesToolStripMenuItem1.Enabled = true;
+                Serial.RgbledOFF();
+                Serial.uart.Close();
             }
         }
 

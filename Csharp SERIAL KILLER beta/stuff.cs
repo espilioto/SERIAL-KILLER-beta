@@ -10,13 +10,13 @@ using CoreAudioApi;
 
 namespace Csharp_SERIAL_KILLER_beta
 {
-    public class coreAudio
+    public class CoreAudio
     {
         public static MMDeviceEnumerator DevEnum = new MMDeviceEnumerator();
         public static MMDevice device;
         public static MMDeviceCollection devs;
                     
-        public static void findDevices()
+        public static void FindDevices()
         {
             devs = DevEnum.EnumerateAudioEndPoints(EDataFlow.eAll, EDeviceState.DEVICE_STATE_ACTIVE);
 
@@ -24,14 +24,31 @@ namespace Csharp_SERIAL_KILLER_beta
 
     }
 
-    public class openHardware
+    public class OpenHardware
     {
+        public static string[] devices;
+        public static Computer computer = new Computer() { CPUEnabled = true, GPUEnabled = true, FanControllerEnabled = true, MainboardEnabled = true, HDDEnabled = true, RAMEnabled = true };
+
+        public static void FindDevices()
+        {
+            computer.Open();
+            devices = new string[computer.Hardware.Count()];
+
+            int i = 0;
+            foreach (var hardware in computer.Hardware)
+            { 
+                devices.SetValue(hardware.Name,i);
+                i++;
+            }
+
+
+        }
 
     }
 
-    public class gamma
+    public class Gamma
     {
-        //gamma correction equation: 255 * ((color value) / 255) ^ gammaCorrection
+        //gamma correction formula: 255 * ((color value) / 255) ^ gammaCorrection
         public static int[] correction =  {  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
                                              0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  1,  1,  1,  1,
                                              1,  1,  1,  1,  1,  1,  1,  1,  1,  2,  2,  2,  2,  2,  2,  2,
@@ -50,16 +67,16 @@ namespace Csharp_SERIAL_KILLER_beta
                                             215,218,220,223,225,228,231,233,236,239,241,244,247,249,252,255 }; //gamma correction: 2.8
     }
 
-    public class serial
+    public class Serial
     {
         public static SerialPort uart = new SerialPort(); //commands:     ping ;  off ;   rgb r,g,b;  out,bit,0/1;    sta,;   man ;/help ;    
 
-        public static void rgbledOFF()
+        public static void RgbledOFF()
         {
             uart.Write("off;");
         }
 
-        public static void rgbledRST() 
+        public static void RgbledRST() 
         {
             uart.Write("rst;");
         }

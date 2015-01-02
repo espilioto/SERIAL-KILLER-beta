@@ -100,7 +100,7 @@ namespace Csharp_SERIAL_KILLER_beta
             strobeMode = false;
 
             timer1.Stop();
-            serial.rgbledOFF();
+            Serial.RgbledOFF();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -109,12 +109,12 @@ namespace Csharp_SERIAL_KILLER_beta
             { 
                 if (!on)
                 {
-                    serial.uart.Write("rgb " + r + "," + g + "," + b + ";");
+                    Serial.uart.Write("rgb " + r + "," + g + "," + b + ";");
                     on = !on;
                 }
                 else
                 {
-                    serial.uart.Write("rgb " + 0 + "," + 0 + "," + 0 + ";");
+                    Serial.uart.Write("rgb " + 0 + "," + 0 + "," + 0 + ";");
                     on = !on;
                 }
             }

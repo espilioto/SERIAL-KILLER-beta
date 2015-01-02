@@ -20,9 +20,9 @@ namespace Csharp_SERIAL_KILLER_beta
         }
 
         public static bool tempMode = false;
-        Computer computer = new Computer() { CPUEnabled = true, GPUEnabled = true };
+
         int cores = 0, cpuavg = 0, cpupack = 0, gputemp = 0;                          //MUST init dem vars 
-        int value = 0, temperature = 0;
+        int currentTempvalue = 0, temperature = 0;
 
         int[] rArray, gArray, bArray;
         int r = 0, g = 0, b = 0;
@@ -32,11 +32,11 @@ namespace Csharp_SERIAL_KILLER_beta
 
         private void tempControl_Load(object sender, EventArgs e)
         {
-            computer.Open();
+            OpenHardware.FindDevices();
 
-            foreach (var hardware in computer.Hardware)
+            foreach (var device in OpenHardware.devices)
             {
-                deviceBox.Items.Add(hardware.Name);
+                deviceBox.Items.Add(device);
             }
 
             deviceBox.SelectedIndex = 0;
@@ -47,7 +47,7 @@ namespace Csharp_SERIAL_KILLER_beta
         {
             gputemp = 0; cpuavg = 0; cpupack = 0;
 
-            foreach (var hardwareItem in computer.Hardware)
+            foreach (var hardwareItem in OpenHardware.computer.Hardware)
             {
                 if (hardwareItem.HardwareType == HardwareType.CPU)
                 {
@@ -84,20 +84,20 @@ namespace Csharp_SERIAL_KILLER_beta
                     {
                         temperature = cpuavg / cores;
                         txtValue.Text = (cpuavg / cores) + Environment.NewLine + "°C";
-                        value = (cpuavg / cores) - (int)txtLower.Value;
+                        currentTempvalue = (cpuavg / cores) - (int)txtLower.Value;
                     }
                     else               //if the cpu package sensor is found, display it
                     {
                         temperature = cpupack;
                         txtValue.Text = cpupack.ToString() + "°C";
-                        value = cpupack - (int)txtLower.Value;
+                        currentTempvalue = cpupack - (int)txtLower.Value;
                     }
                 }
                 else
                 {
                     temperature = gputemp;
                     txtValue.Text = gputemp.ToString() + "°C";
-                    value = gputemp - (int)txtLower.Value;
+                    currentTempvalue = gputemp - (int)txtLower.Value;
                 }
             }
 
@@ -115,12 +115,12 @@ namespace Csharp_SERIAL_KILLER_beta
             }
             else
             {
-                r = rArray[value];
-                g = gArray[value];
-                b = bArray[value];
+                r = rArray[currentTempvalue];
+                g = gArray[currentTempvalue];
+                b = bArray[currentTempvalue];
             }
 
-            serial.uart.Write("rgb " + gamma.correction[r] + "," + gamma.correction[g] + "," + gamma.correction[b] + ";");
+            Serial.uart.Write("rgb " + Gamma.correction[r] + "," + Gamma.correction[g] + "," + Gamma.correction[b] + ";");
             //serial.uart.Write("rgb " + r + "," + g + "," + b + ";");
         }
 
@@ -189,7 +189,7 @@ namespace Csharp_SERIAL_KILLER_beta
         {
             tempMode = false;
             tempTimer.Stop();
-            serial.rgbledOFF();
+            Serial.RgbledOFF();
 
             txtUpper.Enabled = true;
             txtLower.Enabled = true;

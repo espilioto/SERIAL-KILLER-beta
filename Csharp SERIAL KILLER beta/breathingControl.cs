@@ -67,19 +67,19 @@ namespace Csharp_SERIAL_KILLER_beta
                         pwm -= 5;
 
                 if (breathRed.Checked)
-                    Form1.uart.Write("rgb " + pwm + "," + 0 + "," + 0 + ";");
+                    serial.uart.Write("rgb " + pwm + "," + 0 + "," + 0 + ";");
                 else if (breathGreen.Checked)
-                    Form1.uart.Write("rgb " + 0 + "," + pwm + "," + 0 + ";");
+                    serial.uart.Write("rgb " + 0 + "," + pwm + "," + 0 + ";");
                 else if (breathBlue.Checked)
-                    Form1.uart.Write("rgb " + 0 + "," + 0 + "," + pwm + ";");
+                    serial.uart.Write("rgb " + 0 + "," + 0 + "," + pwm + ";");
                 else if (breathRG.Checked)
-                    Form1.uart.Write("rgb " + pwm + "," + pwm + "," + 0 + ";");
+                    serial.uart.Write("rgb " + pwm + "," + pwm + "," + 0 + ";");
                 else if (breathRB.Checked)
-                    Form1.uart.Write("rgb " + pwm + "," + 0 + "," + pwm + ";");
+                    serial.uart.Write("rgb " + pwm + "," + 0 + "," + pwm + ";");
                 else if (breathGB.Checked)
-                    Form1.uart.Write("rgb " + 0 + "," + pwm + "," + pwm + ";");
+                    serial.uart.Write("rgb " + 0 + "," + pwm + "," + pwm + ";");
                 else
-                    Form1.uart.Write("rgb " + pwm + "," + pwm + "," + pwm + ";");
+                    serial.uart.Write("rgb " + pwm + "," + pwm + "," + pwm + ";");
             }
         }
 
@@ -93,7 +93,7 @@ namespace Csharp_SERIAL_KILLER_beta
         {
             breathingMode = false;
             timerPWM.Stop();
-            Form1.uart.Write("off;");
+            serial.rgbledOFF();
             pwm = 0;
         }
 

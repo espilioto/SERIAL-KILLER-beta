@@ -103,15 +103,15 @@ namespace Csharp_SERIAL_KILLER_beta
 
             if (temperature > (int)txtUpper.Value)
             {
-                r = rArray.Max();
-                g = gArray.Max();
-                b = bArray.Max();
+                r = rArray.Last();
+                g = gArray.Last();
+                b = bArray.Last();
             }
             else if (temperature < (int)txtLower.Value)
             {
-                r = rArray.Min();
-                g = gArray.Min();
-                b = bArray.Min();
+                r = rArray.First();
+                g = gArray.First();
+                b = bArray.First();
             }
             else
             {
@@ -120,8 +120,8 @@ namespace Csharp_SERIAL_KILLER_beta
                 b = bArray[value];
             }
 
-            Form1.uart.Write("rgb " + gamma.correction[r] + "," + gamma.correction[g] + "," + gamma.correction[b] + ";");
-            //Form1.uart.Write("rgb " + r + "," + g + "," + b + ";");
+            serial.uart.Write("rgb " + gamma.correction[r] + "," + gamma.correction[g] + "," + gamma.correction[b] + ";");
+            //serial.uart.Write("rgb " + r + "," + g + "," + b + ";");
         }
 
         private void countcores()
@@ -189,7 +189,7 @@ namespace Csharp_SERIAL_KILLER_beta
         {
             tempMode = false;
             tempTimer.Stop();
-            Form1.resetrgbled();
+            serial.rgbledOFF();
 
             txtUpper.Enabled = true;
             txtLower.Enabled = true;

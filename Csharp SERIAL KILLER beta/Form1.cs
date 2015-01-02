@@ -13,7 +13,6 @@ namespace Csharp_SERIAL_KILLER_beta
         public strobeControl strobeControl = new strobeControl();
         public tempControl tempControl = new tempControl();
 
-        public static SerialPort uart = new SerialPort(); //commands:     ping ;  off ;   rgb r,g,b;  out,bit,0/1;    sta,;   man ;/help ;    
         public static bool connected = false;
         string s;
 
@@ -50,33 +49,33 @@ namespace Csharp_SERIAL_KILLER_beta
 
                 try
                 {
-                    uart.PortName = portBox.Text;
-                    uart.BaudRate = int.Parse(baudBox.Text);
-                    uart.Open();
-                    uart.Write("ping;");
-                    s = uart.ReadTo("!");
+                    serial.uart.PortName = portBox.Text;
+                    serial.uart.BaudRate = int.Parse(baudBox.Text);
+                    serial.uart.Open();
+                    serial.uart.Write("ping;");
+                    s = serial.uart.ReadTo("!");
                     if (s == "\n\r>pong")
                     {
                         MessageBox.Show("Connected to the SERIAL KILLER 3000!");
                         enableforms(true);
-                        resetrgbled();
+                        serial.rgbledOFF();
                         connected = true;
                     }
                     else
                     {
-                        MessageBox.Show("Is the SERIAL KILLER 3000 connected in port " + uart.PortName + "?");
+                        MessageBox.Show("Is the SERIAL KILLER 3000 connected in port " + serial.uart.PortName + "?");
                         openport.Checked = false;
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message + '\n' + "Is the SERIAL KILLER 3000 connected in port " + uart.PortName + "?");
+                    MessageBox.Show(ex.Message + '\n' + "Is the SERIAL KILLER 3000 connected in port " + serial.uart.PortName + "?");
                     Application.Exit();
                 }
             }
             else
             {
-                uart.Close();
+                serial.uart.Close();
                 enableforms(false);
                 portBox.Enabled = true;
                 baudBox.Enabled = true;
@@ -119,11 +118,6 @@ namespace Csharp_SERIAL_KILLER_beta
             onToolStripMenuItem5.Enabled = b;               //flashing mode
             offToolStripMenuItem5.Enabled = b;              //flashing mode
             preferencesToolStripMenuItem4.Enabled = b;      //flashing mode
-        }
-
-        public static void resetrgbled()
-        {
-            uart.Write("off;");
         }
 
         #region minimize to tray stuff  //todo minimize menu stuff
@@ -192,11 +186,11 @@ namespace Csharp_SERIAL_KILLER_beta
 
         private void idleToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            uart.Write("off;");
+            serial.rgbledOFF();
         }              //cmd off
         private void resetToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            uart.Write("rst;");
+            serial.rgbledRST();
         }             //cmd rst
         private void commandListToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -249,45 +243,45 @@ namespace Csharp_SERIAL_KILLER_beta
 
             int r = 255, g = 0, b = 0;
 
-            uart.Write("rgb " + 255 + "," + 0 + "," + 0 + ";");                 //r max 
+            serial.uart.Write("rgb " + 255 + "," + 0 + "," + 0 + ";");                 //r max 
 
             while (!onToolStripMenuItem3.Enabled)
             {
                 for (g = 0; g < 255 && !onToolStripMenuItem3.Enabled; g++)                       //g to max
                 {
-                    uart.Write("rgb " + r + "," + gamma.correction[g] + "," + b + ";");
+                    serial.uart.Write("rgb " + r + "," + gamma.correction[g] + "," + b + ";");
                     Application.DoEvents();
                 }
                 for (r = 255; r >= 1 && !onToolStripMenuItem3.Enabled; r--)                       //r to 0
                 {
-                    uart.Write("rgb " + gamma.correction[r] + "," + g + "," + b + ";");
+                    serial.uart.Write("rgb " + gamma.correction[r] + "," + g + "," + b + ";");
                     Application.DoEvents();
                 }
                 for (b = 0; b < 255 && !onToolStripMenuItem3.Enabled; b++)                       //b to max
                 {
-                    uart.Write("rgb " + r + "," + g + "," + gamma.correction[b] + ";");
+                    serial.uart.Write("rgb " + r + "," + g + "," + gamma.correction[b] + ";");
                     Application.DoEvents();
                 }
                 for (g = 255; g >= 1 && !onToolStripMenuItem3.Enabled; g--)                       //g to 0
                 {
-                    uart.Write("rgb " + r + "," + gamma.correction[g] + "," + b + ";");
+                    serial.uart.Write("rgb " + r + "," + gamma.correction[g] + "," + b + ";");
                     Application.DoEvents();
                 }
                 for (r = 0; r < 255 && !onToolStripMenuItem3.Enabled; r++)                       //r to max
                 {
-                    uart.Write("rgb " + gamma.correction[r] + "," + g + "," + b + ";");
+                    serial.uart.Write("rgb " + gamma.correction[r] + "," + g + "," + b + ";");
                     Application.DoEvents();
                 }
                 for (b = 255; b >= 1 && !onToolStripMenuItem3.Enabled; b--)                       //b to 0
                 {
-                    uart.Write("rgb " + r + "," + g + "," + gamma.correction[b] + ";");
+                    serial.uart.Write("rgb " + r + "," + g + "," + gamma.correction[b] + ";");
                     Application.DoEvents();
                 }
             }
         }                //rainbow on       MENU STRIP
         private void offToolStripMenuItem3_Click(object sender, EventArgs e)
         {
-            resetrgbled();
+            serial.rgbledOFF();
             enableforms(true);
             btnRainbow.Checked = false;
         }               //rainbow off       MENU STRIP
@@ -369,8 +363,8 @@ namespace Csharp_SERIAL_KILLER_beta
         {
             if (connected)
             {
-                uart.Write("off;");
-                uart.Close();
+                serial.rgbledOFF();
+                serial.uart.Close();
             }
         }
         private void Form1_Activated(object sender, EventArgs e)

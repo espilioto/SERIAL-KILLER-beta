@@ -29,42 +29,42 @@ namespace Csharp_SERIAL_KILLER_beta
         {
             redupdown.Value = redbar.Value;
             r = redbar.Value;
-            Form1.uart.Write("rgb " + r + "," + g + "," + b + ";");
+            serial.uart.Write("rgb " + gamma.correction[r] + "," + gamma.correction[g] + "," + gamma.correction[b] + ";");
         }
         private void greenbar_Scroll(object sender, EventArgs e)
         {
             greenupdown.Value = greenbar.Value;
             g = greenbar.Value;
-            Form1.uart.Write("rgb " + r + "," + g + "," + b + ";");
+            serial.uart.Write("rgb " + gamma.correction[r] + "," + gamma.correction[g] + "," + gamma.correction[b] + ";");
         }
         private void bluebar_Scroll(object sender, EventArgs e)
         {
             blueupdown.Value = bluebar.Value;
             b = bluebar.Value;
-            Form1.uart.Write("rgb " + r + "," + g + "," + b + ";");
+            serial.uart.Write("rgb " + gamma.correction[r] + "," + gamma.correction[g] + "," + gamma.correction[b] + ";");
         }
         private void redupdown_ValueChanged(object sender, EventArgs e)
         {
             redbar.Value = int.Parse(redupdown.Value.ToString());
             r = int.Parse(redupdown.Value.ToString());
-            Form1.uart.Write("rgb " + r + "," + g + "," + b + ";");
+            serial.uart.Write("rgb " + gamma.correction[r] + "," + gamma.correction[g] + "," + gamma.correction[b] + ";");
         }
         private void greenupdown_ValueChanged(object sender, EventArgs e)
         {
             greenbar.Value = int.Parse(greenupdown.Value.ToString());
             g = int.Parse(greenupdown.Value.ToString());
-            Form1.uart.Write("rgb " + r + "," + g + "," + b + ";");
+            serial.uart.Write("rgb " + gamma.correction[r] + "," + gamma.correction[g] + "," + gamma.correction[b] + ";");
         }
         private void blueupdown_ValueChanged(object sender, EventArgs e)
         {
             bluebar.Value = int.Parse(blueupdown.Value.ToString());
             b = int.Parse(blueupdown.Value.ToString());
-            Form1.uart.Write("rgb " + r + "," + g + "," + b + ";");
+            serial.uart.Write("rgb " + gamma.correction[r] + "," + gamma.correction[g] + "," + gamma.correction[b] + ";");
         }
 
         private void btnOff_Click(object sender, EventArgs e)
         {
-            Form1.resetrgbled();
+            serial.rgbledOFF();
 
             redbar.Value = 0;
             bluebar.Value = 0;

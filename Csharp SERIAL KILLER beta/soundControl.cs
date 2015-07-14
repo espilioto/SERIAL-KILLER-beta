@@ -16,37 +16,37 @@ namespace Csharp_SERIAL_KILLER_beta
         
         private void SoundControl_Load(object sender, EventArgs e)
         {
-            CoreAudio.FindDevices();
+            stuff.CoreAudio.FindDevices();
 
-            for (int i = 0; i < CoreAudio.devs.Count; i++)
-                comboBox1.Items.Add(CoreAudio.devs[i].FriendlyName);
+            for (int i = 0; i < stuff.CoreAudio.devs.Count; i++)
+                comboBox1.Items.Add(stuff.CoreAudio.devs[i].FriendlyName);
 
             comboBox1.SelectedIndex = 0;
             radioRed.Checked = true;
         }
         
-        private void timer1_Tick(object sender, EventArgs e)
+        private void timerSound_Tick(object sender, EventArgs e)
         {
             if (Form1.connected && soundMode)
             {
-                soundLevel = (int)(CoreAudio.device.AudioMeterInformation.MasterPeakValue * trackBar1.Value);
+                soundLevel = (int)(stuff.CoreAudio.device.AudioMeterInformation.MasterPeakValue * trackBar1.Value);
                 
                 Application.DoEvents();
                 
                 if (radioRed.Checked)
-                    Serial.uart.Write("rgb " + Gamma.correction[(soundLevel * 2)] + "," + 0 + "," + 0 + ";");
+                    stuff.Serial.uart.Write("rgb " + stuff.Gamma.correction[(soundLevel * 2)] + "," + 0 + "," + 0 + ";");
                 else if (radioGreen.Checked)
-                    Serial.uart.Write("rgb " + 0 + "," + Gamma.correction[(soundLevel * 2)] + "," + 0 + ";");
+                    stuff.Serial.uart.Write("rgb " + 0 + "," + stuff.Gamma.correction[(soundLevel * 2)] + "," + 0 + ";");
                 else if (radioBlue.Checked)
-                    Serial.uart.Write("rgb " + 0 + "," + 0 + "," + Gamma.correction[(soundLevel * 2)] + ";");
+                    stuff.Serial.uart.Write("rgb " + 0 + "," + 0 + "," + stuff.Gamma.correction[(soundLevel * 2)] + ";");
                 else if (radioRG.Checked)
-                    Serial.uart.Write("rgb " + Gamma.correction[(soundLevel * 2)] + "," + Gamma.correction[(soundLevel * 2)] + "," + 0 + ";");
+                    stuff.Serial.uart.Write("rgb " + stuff.Gamma.correction[(soundLevel * 2)] + "," + stuff.Gamma.correction[(soundLevel * 2)] + "," + 0 + ";");
                 else if (radioRB.Checked)
-                    Serial.uart.Write("rgb " + Gamma.correction[(soundLevel * 2)] + "," + 0 + "," + Gamma.correction[(soundLevel * 2)] + ";");
+                    stuff.Serial.uart.Write("rgb " + stuff.Gamma.correction[(soundLevel * 2)] + "," + 0 + "," + stuff.Gamma.correction[(soundLevel * 2)] + ";");
                 else if (radioGB.Checked)
-                    Serial.uart.Write("rgb " + 0 + "," + Gamma.correction[(soundLevel * 2)] + "," + Gamma.correction[(soundLevel * 2)] + ";");
+                    stuff.Serial.uart.Write("rgb " + 0 + "," + stuff.Gamma.correction[(soundLevel * 2)] + "," + stuff.Gamma.correction[(soundLevel * 2)] + ";");
                 else
-                    Serial.uart.Write("rgb " + Gamma.correction[(soundLevel * 2)] + "," + Gamma.correction[(soundLevel * 2)] + "," + Gamma.correction[(soundLevel * 2)] + ";");
+                    stuff.Serial.uart.Write("rgb " + stuff.Gamma.correction[(soundLevel * 2)] + "," + stuff.Gamma.correction[(soundLevel * 2)] + "," + stuff.Gamma.correction[(soundLevel * 2)] + ";");
 
                 soundBar.Value = soundLevel;
             }
@@ -54,8 +54,8 @@ namespace Csharp_SERIAL_KILLER_beta
 
         public void soundModeStart(object sender, EventArgs e)
         {
-            if (CoreAudio.devs == null)
-                CoreAudio.device = CoreAudio.DevEnum.GetDefaultAudioEndpoint(CoreAudioApi.EDataFlow.eRender, CoreAudioApi.ERole.eMultimedia);
+            if (stuff.CoreAudio.devs == null)
+                stuff.CoreAudio.device = stuff.CoreAudio.DevEnum.GetDefaultAudioEndpoint(CoreAudioApi.EDataFlow.eRender, CoreAudioApi.ERole.eMultimedia);
 
             soundMode = true;
             timerSound.Start();
@@ -65,14 +65,14 @@ namespace Csharp_SERIAL_KILLER_beta
             soundMode = false;
             timerSound.Stop();
 
-            Serial.RgbledOFF();
+            stuff.Serial.RgbledOFF();
             
             soundBar.Value = 0;
         }
 
         private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            CoreAudio.device = CoreAudio.devs[(int)comboBox1.SelectedIndex];
+            stuff.CoreAudio.device = stuff.CoreAudio.devs[(int)comboBox1.SelectedIndex];
         }
         private void trackBar1_Scroll(object sender, EventArgs e)
         {

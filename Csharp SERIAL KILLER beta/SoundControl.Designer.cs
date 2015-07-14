@@ -98,7 +98,7 @@
             // 
             this.timerSound.Enabled = true;
             this.timerSound.Interval = 10;
-            this.timerSound.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timerSound.Tick += new System.EventHandler(this.timerSound_Tick);
             // 
             // btnStart
             // 

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.IO.Ports;
+using System.Drawing;
+using System.IO;
 
 namespace Csharp_SERIAL_KILLER_beta
 {
@@ -13,6 +15,7 @@ namespace Csharp_SERIAL_KILLER_beta
         public tempControl tempControl = new tempControl();
 
         public static bool connected = false;
+        bool preferencesOpen = false;
         string pong;
 
         ContextMenu cm = new ContextMenu();
@@ -48,33 +51,33 @@ namespace Csharp_SERIAL_KILLER_beta
 
                 try
                 {
-                    Serial.uart.PortName = portBox.Text;
-                    Serial.uart.BaudRate = int.Parse(baudBox.Text);
-                    Serial.uart.Open();
-                    Serial.uart.Write("ping;");
-                    pong = Serial.uart.ReadTo("!");
+                    stuff.Serial.uart.PortName = portBox.Text;
+                    stuff.Serial.uart.BaudRate = int.Parse(baudBox.Text);
+                    stuff.Serial.uart.Open();
+                    stuff.Serial.uart.Write("ping;");
+                    pong = stuff.Serial.uart.ReadTo("!");
                     if (pong == "\n\r>pong")
                     {
                         MessageBox.Show("Connected to the Serial KILLER 3000!");
                         enableforms(true);
-                        Serial.RgbledOFF();
+                        stuff.Serial.RgbledOFF();
                         connected = true;
                     }
                     else
                     {
-                        MessageBox.Show("Is the Serial KILLER 3000 connected in port " + Serial.uart.PortName + "?");
+                        MessageBox.Show("Is the Serial KILLER 3000 connected in port " + stuff.Serial.uart.PortName + "?");
                         openport.Checked = false;
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message + '\n' + "Is the Serial KILLER 3000 connected in port " + Serial.uart.PortName + "?");
+                    MessageBox.Show(ex.Message + '\n' + "Is the Serial KILLER 3000 connected in port " + stuff.Serial.uart.PortName + "?");
                     Application.Exit();
                 }
             }
             else
             {
-                Serial.uart.Close();
+                stuff.Serial.uart.Close();
                 enableforms(false);
                 portBox.Enabled = true;
                 baudBox.Enabled = true;
@@ -124,9 +127,9 @@ namespace Csharp_SERIAL_KILLER_beta
         private void initMinimizeToTrayStuff()
         {
             open.Click += new System.EventHandler(this.open_Click);
-            //Leds.Click += new System.EventHandler(this.LedsOn_Click);
-            //Leds.Click += new System.EventHandler(this.LedsOff_Click);
-
+            Leds.Click += new System.EventHandler(this.LedsOn_Click);
+            Leds.Click += new System.EventHandler(this.LedsOff_Click);
+            
             exit.Click += new System.EventHandler(this.exit_Click);
 
             cm.MenuItems.Add(open);
@@ -148,6 +151,11 @@ namespace Csharp_SERIAL_KILLER_beta
             {
                 this.Hide();
                 taskbarIcon.Visible = true;
+
+                //this is what happens when you cant find the original .ico file
+                //Bitmap cat = new Bitmap(taskbarIcon.Icon.ToBitmap());
+                //cat.Save("C://cat.bmp"); 
+                
                 //taskbarIcon.BalloonTipText = "sup";
                 //taskbarIcon.ShowBalloonTip(500);
             }
@@ -172,24 +180,24 @@ namespace Csharp_SERIAL_KILLER_beta
         {
             Application.Exit();
         }
-        //private void LedsOn_Click(object sender, EventArgs e)
-        //{
-        //    MessageBox.Show("derp");
-        //}
-        //private void LedsOff_Click(object sender, EventArgs e)
-        //{
-        //    MessageBox.Show("derp");
-        //}
+        private void LedsOn_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("derp");
+        }
+        private void LedsOff_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("derp");
+        }
 
         #endregion
 
         private void idleToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Serial.RgbledOFF();
+            stuff.Serial.RgbledOFF();
         }              //cmd off
         private void resetToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Serial.RgbledRST();
+            stuff.Serial.RgbledRST();
         }             //cmd rst
         private void commandListToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -242,45 +250,45 @@ namespace Csharp_SERIAL_KILLER_beta
 
             int r = 255, g = 0, b = 0;
 
-            Serial.uart.Write("rgb " + 255 + "," + 0 + "," + 0 + ";");                 //r max 
+            stuff.Serial.uart.Write("rgb " + 255 + "," + 0 + "," + 0 + ";");                 //r max 
 
             while (!onToolStripMenuItem3.Enabled)
             {
                 for (g = 0; g < 255 && !onToolStripMenuItem3.Enabled; g++)                       //g to max
                 {
-                    Serial.uart.Write("rgb " + r + "," + Gamma.correction[g] + "," + b + ";");
+                    stuff.Serial.uart.Write("rgb " + r + "," + stuff.Gamma.correction[g] + "," + b + ";");
                     Application.DoEvents();
                 }
                 for (r = 255; r >= 1 && !onToolStripMenuItem3.Enabled; r--)                       //r to 0
                 {
-                    Serial.uart.Write("rgb " + Gamma.correction[r] + "," + g + "," + b + ";");
+                    stuff.Serial.uart.Write("rgb " + stuff.Gamma.correction[r] + "," + g + "," + b + ";");
                     Application.DoEvents();
                 }
                 for (b = 0; b < 255 && !onToolStripMenuItem3.Enabled; b++)                       //b to max
                 {
-                    Serial.uart.Write("rgb " + r + "," + g + "," + Gamma.correction[b] + ";");
+                    stuff.Serial.uart.Write("rgb " + r + "," + g + "," + stuff.Gamma.correction[b] + ";");
                     Application.DoEvents();
                 }
                 for (g = 255; g >= 1 && !onToolStripMenuItem3.Enabled; g--)                       //g to 0
                 {
-                    Serial.uart.Write("rgb " + r + "," + Gamma.correction[g] + "," + b + ";");
+                    stuff.Serial.uart.Write("rgb " + r + "," + stuff.Gamma.correction[g] + "," + b + ";");
                     Application.DoEvents();
                 }
                 for (r = 0; r < 255 && !onToolStripMenuItem3.Enabled; r++)                       //r to max
                 {
-                    Serial.uart.Write("rgb " + Gamma.correction[r] + "," + g + "," + b + ";");
+                    stuff.Serial.uart.Write("rgb " + stuff.Gamma.correction[r] + "," + g + "," + b + ";");
                     Application.DoEvents();
                 }
                 for (b = 255; b >= 1 && !onToolStripMenuItem3.Enabled; b--)                       //b to 0
                 {
-                    Serial.uart.Write("rgb " + r + "," + g + "," + Gamma.correction[b] + ";");
+                    stuff.Serial.uart.Write("rgb " + r + "," + g + "," + stuff.Gamma.correction[b] + ";");
                     Application.DoEvents();
                 }
             }
         }                //rainbow on       MENU STRIP
         private void offToolStripMenuItem3_Click(object sender, EventArgs e)
         {
-            Serial.RgbledOFF();
+            stuff.Serial.RgbledOFF();
             enableforms(true);
             btnRainbow.Checked = false;
         }               //rainbow off       MENU STRIP
@@ -362,8 +370,8 @@ namespace Csharp_SERIAL_KILLER_beta
         {
             if (connected)
             {
-                Serial.RgbledOFF();
-                Serial.uart.Close();
+                stuff.Serial.RgbledOFF();
+                stuff.Serial.uart.Close();
             }
         }
 
@@ -380,6 +388,7 @@ namespace Csharp_SERIAL_KILLER_beta
         }
         private void btnNormalPrefs_Click(object sender, EventArgs e)                           //normal prefs BUTTON
         {
+            PreferencesPanelSwitch();
             normalControl.ShowDialog();
         }
         private void btnRainbow_CheckedChanged(object sender, EventArgs e)
@@ -406,6 +415,7 @@ namespace Csharp_SERIAL_KILLER_beta
         }                   //breathing BUTTON
         private void btnBreathingPrefs_Click(object sender, EventArgs e)
         {
+            PreferencesPanelSwitch();
             breathingControl.ShowDialog();
         }                   //breathing prefs BUTTON
         private void btnSound_CheckedChanged(object sender, EventArgs e)
@@ -421,6 +431,7 @@ namespace Csharp_SERIAL_KILLER_beta
         }                   //sound BUTTON
         private void btnSoundPrefs_Click(object sender, EventArgs e)
         {
+            PreferencesPanelSwitch();
             soundControl.ShowDialog();
         }                   //sound prefs  BUTTON
         private void btnTemp_CheckedChanged(object sender, EventArgs e)
@@ -429,6 +440,7 @@ namespace Csharp_SERIAL_KILLER_beta
         }                     //temp  BUTTON
         private void btnTempPrefs_Click(object sender, EventArgs e)
         {
+            PreferencesPanelSwitch();
             tempControl.ShowDialog();
         }                           //temp prefs  BUTTON
         private void btnStrobe_CheckedChanged(object sender, EventArgs e)
@@ -444,8 +456,25 @@ namespace Csharp_SERIAL_KILLER_beta
         }                    //strobe  BUTTON
         private void btnStrobePrefs_Click(object sender, EventArgs e)
         {
+            PreferencesPanelSwitch();
             strobeControl.ShowDialog();
-        }                       //strobe prefs  BUTTON
+        }               //strobe prefs  BUTTON
+
+        private void PreferencesPanelSwitch()
+        {
+            if (preferencesOpen == false)
+            {
+                this.Width += 265;
+                this.CenterToScreen();
+                preferencesOpen = true;
+            }
+            else
+            {
+                this.Width -= 265;
+                this.CenterToScreen();
+                preferencesOpen = false;
+            }
+        }                      
 
     }
 }

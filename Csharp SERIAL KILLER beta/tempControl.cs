@@ -32,9 +32,9 @@ namespace Csharp_SERIAL_KILLER_beta
 
         private void tempControl_Load(object sender, EventArgs e)
         {
-            OpenHardware.FindDevices();
+            stuff.OpenHardware.FindDevices();
 
-            foreach (var device in OpenHardware.devices)
+            foreach (var device in stuff.OpenHardware.devices)
             {
                 deviceBox.Items.Add(device);
             }
@@ -43,11 +43,16 @@ namespace Csharp_SERIAL_KILLER_beta
             countcores();
         }
 
+        public void MeasureTemp()
+        {
+
+        }
+
         private void tempTimer_Tick(object sender, EventArgs e)
         {
             gputemp = 0; cpuavg = 0; cpupack = 0;
 
-            foreach (var hardwareItem in OpenHardware.computer.Hardware)
+            foreach (var hardwareItem in stuff.OpenHardware.computer.Hardware)
             {
                 if (hardwareItem.HardwareType == HardwareType.CPU)
                 {
@@ -120,7 +125,7 @@ namespace Csharp_SERIAL_KILLER_beta
                 b = bArray[currentTempvalue];
             }
 
-            Serial.uart.Write("rgb " + Gamma.correction[r] + "," + Gamma.correction[g] + "," + Gamma.correction[b] + ";");
+            stuff.Serial.uart.Write("rgb " + stuff.Gamma.correction[r] + "," + stuff.Gamma.correction[g] + "," + stuff.Gamma.correction[b] + ";");
             //serial.uart.Write("rgb " + r + "," + g + "," + b + ";");
         }
 
@@ -189,7 +194,7 @@ namespace Csharp_SERIAL_KILLER_beta
         {
             tempMode = false;
             tempTimer.Stop();
-            Serial.RgbledOFF();
+            stuff.Serial.RgbledOFF();
 
             txtUpper.Enabled = true;
             txtLower.Enabled = true;
